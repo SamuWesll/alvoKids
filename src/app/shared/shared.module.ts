@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NotImplementationComponent } from './components/not-implementation/not-implementation.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NotImplementationComponent,
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
+    NotImplementationComponent,
   ]
 })
 export class SharedModule { }

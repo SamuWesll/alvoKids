@@ -2,19 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HubComponent } from './hub.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { VisitorComponent } from './visitor/visitor.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
     HubComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    VisitorComponent
   ],
   imports: [
-    CommonModule
-  ],
-  exports: [
-    HubComponent
+    CommonModule,
+    // RouterModule,
+    SharedModule,
   ]
 })
 export class HubModule { }

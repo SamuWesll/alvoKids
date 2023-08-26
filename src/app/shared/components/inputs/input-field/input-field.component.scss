@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto&display=swap');
+
+.content {
+    height: 5vh;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        border: solid rgb(158, 153, 153);
+        padding-left: 0.5rem;
+        font-size: 0.9rem;
+        // font-family: 'Roboto', sans-serif;
+    }
+
+    input::placeholder {
+
+        font-family: 'Roboto', sans-serif;
+    }
+
+    input[readonly] {
+        background-color: rgba(210, 210, 210, 0.455);
+    }
+}

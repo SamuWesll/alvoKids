@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+decla
+*{
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+}
+:root {
+    /* --colorDefault: #7c7f7f; */
+    --colorDefault: #10336f;
+    --button-hub: #242525;
+    --icon-primary: #3EFEB1;
+    --icon-secondary: #FDB23D;
+    --icon-third: #3F8DFC;
+    --icon-fourth: #B23FFE;
+    --icon-fifth: #FF3D8C;
+}

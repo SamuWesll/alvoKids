@@ -1,0 +1,14 @@
+.main {
+    margin: 0 1.2rem 1.2rem 1.2rem;
+
+    .title {
+        margin: 1.2rem 0;
+        display: flex;
+        justify-content: center;
+        span {
+            background-color: white;
+            color: rgb(68, 68, 68);
+            font-size: 0.9rem;
+        }
+    }
+}

@@ -6,19 +6,19 @@ import { RegisterComponent } from './register/register.component';
 import { VisitorComponent } from './visitor/visitor.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
-
-
+import { ParentsComponent } from './parents/parents.component';
 
 @NgModule({
   declarations: [
     HubComponent,
     LoginComponent,
     RegisterComponent,
-    VisitorComponent
+    VisitorComponent,
+    ParentsComponent
   ],
   imports: [
     CommonModule,
-    // RouterModule,
+    RouterModule,
     SharedModule,
   ]
 })

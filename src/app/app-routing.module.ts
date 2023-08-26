@@ -4,12 +4,14 @@ import { HubComponent } from './page/hub/hub.component';
 import { LoginComponent } from './page/hub/login/login.component';
 import { RegisterComponent } from './page/hub/register/register.component';
 import { VisitorComponent } from './page/hub/visitor/visitor.component';
+import { ParentsComponent } from './page/hub/parents/parents.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
-  { path:'login', pathMatch: 'full', component: LoginComponent },
-  { path:'register', pathMatch: 'full', component: RegisterComponent },
-  { path:'visitor', pathMatch: 'full', component: VisitorComponent },
+  { path:'login', component: LoginComponent },
+  { path:'register', component: RegisterComponent },
+  { path:'parents', component: ParentsComponent },
+  { path:'visitor', component: VisitorComponent },
 ];
 
 @NgModule({

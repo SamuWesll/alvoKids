@@ -1,0 +1,13 @@
+<header class="container">
+    <!-- {props.backButton ? 
+        <button onClick={() => handleBackRouter()}>
+            <HiArrowNarrowLeft size={25}/>
+        </button>
+        : null
+    } -->
+    <button *ngIf="backButton" (click)="navegateBack()">
+        <span>Button</span>
+    </button>
+    
+    <h1>{{title}}</h1>
+</header>

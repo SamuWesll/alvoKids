@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageModule } from './page/page.module';
 import { SharedModule } from './shared/shared.module';
+import { HubModule } from './page/hub/hub.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +13,9 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PageModule,
     SharedModule,
+    HubModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

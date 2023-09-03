@@ -7,6 +7,7 @@ import { VisitorComponent } from './visitor/visitor.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ParentsComponent } from './parents/parents.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ParentsComponent } from './parents/parents.component';
     CommonModule,
     RouterModule,
     SharedModule,
+    ReactiveFormsModule,
   ]
 })
 export class HubModule { }

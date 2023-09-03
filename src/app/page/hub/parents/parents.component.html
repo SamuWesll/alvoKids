@@ -1,13 +1,25 @@
 <app-header title="Visitante"/>
-<form class="main">
-    <app-input-field label="Nome do responsavel completo"/>
-    <!-- <Input value={nameParent} placeholder="Nome do responsavel completo" type="text" onChange={setNameParent} />
-    <InputPhone value={phoneNumber} placeholder="Telefone para contato" onChange={setPhoneNumber} />
-    <Input value={kinship} placeholder="Parentesco (Ex: Pai ou mãe)" type="text" onChange={setKinship} />
-    <Divider />
+<form [formGroup]="formGroup" class="main" (ngSubmit)="handleVisitor()">
+    <app-input-field 
+        formControlName="fullname" 
+        label="Nome do responsavel completo" 
+        type="text"
+    />
 
-    <Button disabled={btDisabled} onChange={()=> handleVisitor()}
-        text="Avançar"
-        /> -->
+    <app-input-field 
+        formControlName="phoneNumber" 
+        label="Telefone para contato" 
+        type="number"
+    />
+
+    <app-input-field 
+        formControlName="kinship" 
+        label="Parentesco (Ex: Pai ou mãe)" 
+        type="text"
+    />
+
+    <app-button-send 
+        buttonType="submit"
+        buttonTitle="Avançar"/>
 
 </form>

@@ -4,12 +4,14 @@ import { NotImplementationComponent } from './components/not-implementation/not-
 import { InputFieldComponent } from './components/inputs/input-field/input-field.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
+import { ButtonSendComponent } from './components/button-send/button-send.component';
 
 @NgModule({
   declarations: [
     NotImplementationComponent,
     InputFieldComponent,
     HeaderComponent,
+    ButtonSendComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,8 @@ import { HeaderComponent } from './components/header/header.component';
     NotImplementationComponent,
     InputFieldComponent,
     HeaderComponent,
+    ReactiveFormsModule,
+    ButtonSendComponent,
   ]
 })
 export class SharedModule { }

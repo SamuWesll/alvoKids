@@ -19,6 +19,8 @@
 
     <app-button-send 
         buttonType="submit"
-        buttonTitle="Avançar"/>
+        buttonTitle="Avançar"
+        [disabled]="!formGroup.valid"
+    />
 
 </form>

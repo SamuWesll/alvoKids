@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Visitor } from 'src/app/shared/model/Visitor.model';
+import { VisitorService } from 'src/app/shared/service/visitor.service';
 
 @Component({
   selector: 'app-parents',
@@ -13,22 +16,38 @@ export class ParentsComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private visitorService: VisitorService,
+    private router: Router,
   ) {}
 
   criarFormulario(): void {
     this.formGroup = this.formBuilder.group({
-      fullname: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      kinship: ['', Validators.required],
+      fullname: ['', [
+        Validators.required,
+        Validators.minLength(5)
+      ]],
+      phoneNumber: ['', [
+        Validators.required,
+        Validators.minLength(12)
+      ]],
+      kinship: ['', [
+        Validators.required,
+        Validators.minLength(3)
+      ]],
     })
   }
 
   handleVisitor(): void {
     const { fullname, phoneNumber, kinship} = this.formGroup.value;
 
-    console.log(fullname)
-    console.log(phoneNumber)
-    console.log(kinship)
+    const visitor: Visitor = {
+      nameParent: fullname,
+      phoneNumber,
+      kinship
+    }
+
+    this.visitorService.setVisitor(visitor);
+    this.router.navigateByUrl('visitor');
   }
 
   ngOnInit(): void {

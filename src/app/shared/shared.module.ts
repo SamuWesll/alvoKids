@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ButtonSendComponent } from './components/button-send/button-send.component';
 import { InputPhoneComponent } from './components/inputs/input-phone/input-phone.component';
 import { InputMaskModule } from '@ngneat/input-mask';
+import { NavbarVisitorComponent } from './components/navbar/navbar-visitor/navbar-visitor.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { InputMaskModule } from '@ngneat/input-mask';
     HeaderComponent,
     ButtonSendComponent,
     InputPhoneComponent,
+    NavbarVisitorComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { InputMaskModule } from '@ngneat/input-mask';
     ReactiveFormsModule,
     ButtonSendComponent,
     InputPhoneComponent,
+    NavbarVisitorComponent,
   ]
 })
 export class SharedModule { }

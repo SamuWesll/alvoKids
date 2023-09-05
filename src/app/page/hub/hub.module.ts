@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ParentsComponent } from './parents/parents.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChildrenComponent } from './visitor/children/children.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     VisitorComponent,
-    ParentsComponent
+    ParentsComponent,
+    ChildrenComponent
   ],
   imports: [
     CommonModule,

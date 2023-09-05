@@ -10,6 +10,7 @@ export class ButtonSendComponent {
   @Output() outputZerarVariaveis = new EventEmitter<any>();
   @Input() buttonTitle = 'Buscar';
   @Input() buttonType = 'button';
+  @Input() disabled = false;
 
   constructor() {
 

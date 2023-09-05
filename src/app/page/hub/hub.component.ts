@@ -13,7 +13,7 @@ export class HubComponent implements OnInit {
   }
 
   navegateURL(url: string): void  {
-    this.router.navigateByUrl(url)
+    this.router.navigateByUrl(url);
   }
 
   ngOnInit(): void {

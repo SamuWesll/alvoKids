@@ -18,8 +18,16 @@ export class StorageService {
     return EMPTY;
   }
 
+  setItem(key: string, objeto: any) {
+    localStorage.setItem(key, JSON.stringify(objeto));
+  }
+
   contem(chave: string): boolean {
     return !!localStorage.getItem(chave);
+  }
+
+  removeItem(chave: string): void {
+    localStorage.removeItem(chave);
   }
 
   private converterEmJson(dado: string): any {

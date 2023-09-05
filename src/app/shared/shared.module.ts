@@ -5,6 +5,8 @@ import { InputFieldComponent } from './components/inputs/input-field/input-field
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonSendComponent } from './components/button-send/button-send.component';
+import { InputPhoneComponent } from './components/inputs/input-phone/input-phone.component';
+import { InputMaskModule } from '@ngneat/input-mask';
 
 @NgModule({
   declarations: [
@@ -12,11 +14,13 @@ import { ButtonSendComponent } from './components/button-send/button-send.compon
     InputFieldComponent,
     HeaderComponent,
     ButtonSendComponent,
+    InputPhoneComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    InputMaskModule,
   ],
   exports: [
     NotImplementationComponent,
@@ -24,6 +28,7 @@ import { ButtonSendComponent } from './components/button-send/button-send.compon
     HeaderComponent,
     ReactiveFormsModule,
     ButtonSendComponent,
+    InputPhoneComponent,
   ]
 })
 export class SharedModule { }

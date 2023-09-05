@@ -8,6 +8,7 @@ import { ButtonSendComponent } from './components/button-send/button-send.compon
 import { InputPhoneComponent } from './components/inputs/input-phone/input-phone.component';
 import { InputMaskModule } from '@ngneat/input-mask';
 import { NavbarVisitorComponent } from './components/navbar/navbar-visitor/navbar-visitor.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavbarVisitorComponent } from './components/navbar/navbar-visitor/navba
     FormsModule,
     ReactiveFormsModule,
     InputMaskModule,
+    FontAwesomeModule,
   ],
   exports: [
     NotImplementationComponent,
@@ -32,6 +34,7 @@ import { NavbarVisitorComponent } from './components/navbar/navbar-visitor/navba
     ButtonSendComponent,
     InputPhoneComponent,
     NavbarVisitorComponent,
+    FontAwesomeModule,
   ]
 })
 export class SharedModule { }

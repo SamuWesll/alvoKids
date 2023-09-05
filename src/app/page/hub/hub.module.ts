@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ParentsComponent } from './parents/parents.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChildrenComponent } from './visitor/children/children.component';
+import { MeetingsComponent } from './visitor/meetings/meetings.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ChildrenComponent } from './visitor/children/children.component';
     RegisterComponent,
     VisitorComponent,
     ParentsComponent,
-    ChildrenComponent
+    ChildrenComponent,
+    MeetingsComponent
   ],
   imports: [
     CommonModule,

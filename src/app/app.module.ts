@@ -14,7 +14,7 @@ import { HubModule } from './page/hub/hub.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    HubModule
+    HubModule,
   ],
   bootstrap: [AppComponent]
 })

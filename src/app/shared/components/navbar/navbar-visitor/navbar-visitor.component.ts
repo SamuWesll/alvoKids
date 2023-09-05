@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { faChurch, faCubes, faCode } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar-visitor',
@@ -8,23 +10,34 @@ import { Component } from '@angular/core';
 export class NavbarVisitorComponent {
 
   lista = [
-    { name: "Crianças", url: `/hub/visitor/main`, active: false },
-    { name: "Culto", url: `/hub/visitor/meetings`, active: false }
+    { name: "Crianças", url: `/visitor/children`, active: false },
+    { name: "Culto", url: `/visitor/meetings`, active: false }
   ]
   indexPage = 0;
+  faChurch = faChurch;
+  faCubes = faCubes;
+  faCode = faCode;
+
+  constructor(private router: Router) {
+    this.lista.forEach((l, i) => {
+      if (this.router.url == l.url) {
+        this.indexPage = i;
+      }
+    })
+  }
 
   selectIcon(name: string) {
     var icon;
     const sizeIcon = 28;
     switch (name) {
       case 'Culto':
-        // icon = <FaChurch size={sizeIcon} />
+        icon = faChurch;
         break;
       case 'Crianças':
-        // icon = <FaCubes size={sizeIcon} />
+        icon = faCubes;
         break;
       default:
-        // icon = <FaCode size={sizeIcon} />;
+        icon = faCode;
         break;
     }
 
@@ -33,6 +46,7 @@ export class NavbarVisitorComponent {
 
   navegated(url: string, index: number) {
    this.indexPage = index
+   this.router.navigateByUrl(url)
   }
 
 }

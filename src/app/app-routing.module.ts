@@ -6,6 +6,7 @@ import { RegisterComponent } from './page/hub/register/register.component';
 import { VisitorComponent } from './page/hub/visitor/visitor.component';
 import { ParentsComponent } from './page/hub/parents/parents.component';
 import { ChildrenComponent } from './page/hub/visitor/children/children.component';
+import { MeetingsComponent } from './page/hub/visitor/meetings/meetings.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
     component: VisitorComponent, 
     children: [
       { path:'', redirectTo:'/visitor/children', pathMatch: 'full' },
-      { path:'children', component: ChildrenComponent }
+      { path:'children', component: ChildrenComponent },
+      { path:'meetings', component: MeetingsComponent },
     ]
   },
 ];

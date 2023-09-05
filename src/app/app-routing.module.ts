@@ -7,6 +7,7 @@ import { VisitorComponent } from './page/hub/visitor/visitor.component';
 import { ParentsComponent } from './page/hub/parents/parents.component';
 import { ChildrenComponent } from './page/hub/visitor/children/children.component';
 import { MeetingsComponent } from './page/hub/visitor/meetings/meetings.component';
+import { NewChildrenComponent } from './page/hub/visitor/new-children/new-children.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path:'meetings', component: MeetingsComponent },
     ]
   },
+  { path: 'visitor/new-children', component: NewChildrenComponent }
 ];
 
 @NgModule({

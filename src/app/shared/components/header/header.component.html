@@ -1,12 +1,6 @@
 <header class="container">
-    <!-- {props.backButton ? 
-        <button onClick={() => handleBackRouter()}>
-            <HiArrowNarrowLeft size={25}/>
-        </button>
-        : null
-    } -->
     <button *ngIf="backButton" (click)="navegateBack()">
-        
+        <fa-icon [icon]="faArrowLeft" size="2x"></fa-icon>
     </button>
     
     <h1>{{title}}</h1>

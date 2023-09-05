@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Location } from '@angular/common'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,8 @@ import { Location } from '@angular/common'
 })
 export class HeaderComponent {
   @Input() title: string | undefined;
-  @Input() backButton: boolean = true;
+  @Input() backButton: boolean = false;
+  faArrowLeft = faArrowLeft
 
   constructor(private location: Location) {}
 

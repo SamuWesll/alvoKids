@@ -9,6 +9,7 @@ import { InputPhoneComponent } from './components/inputs/input-phone/input-phone
 import { InputMaskModule } from '@ngneat/input-mask';
 import { NavbarVisitorComponent } from './components/navbar/navbar-visitor/navbar-visitor.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonAddComponent } from './components/button-add/button-add.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ButtonSendComponent,
     InputPhoneComponent,
     NavbarVisitorComponent,
+    ButtonAddComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     InputPhoneComponent,
     NavbarVisitorComponent,
     FontAwesomeModule,
+    ButtonAddComponent,
   ]
 })
 export class SharedModule { }

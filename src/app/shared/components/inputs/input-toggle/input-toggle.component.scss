@@ -1,0 +1,60 @@
+// @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto&display=swap');
+
+.content {
+    height: 5vh;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    input[type=checkbox] {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+
+    label {
+        cursor: pointer;
+        text-indent: -99px;
+        width: 2.7rem;
+        height: 0.7rem;
+        background: rgb(177, 177, 177);
+        display: block;
+        border-radius: 100px;
+        position: relative;
+    }
+
+    label:after {
+        content: '';
+        position: absolute;
+        bottom: -0.3rem;
+        left: 0rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        background: #FFFFFF;
+        border: 1px solid rgb(158, 158, 158);
+        border-radius: 90px;
+        transition: 0.3s;
+    }
+
+    input:checked+label {
+        background: #95CAF0;
+    }
+
+    input:checked+label:after {
+        left: calc(100% - 0rem);
+        transform: translateX(-100%);
+        background: #128FE9;
+        border: 1 solid #128FE9;
+    }
+
+    label:active:after {
+        width: 2rem;
+    }
+
+    span {
+        margin-left: 1rem;
+        font-family: 'Roboto', sans-serif;
+        color: rgb(126, 126, 126);;
+    }
+}

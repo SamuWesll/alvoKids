@@ -3,7 +3,7 @@
         <li *ngFor="let item of lista; let i = index" class="{{indexPage == i ? 'active' : null}}">
             <button (click)="navegated(item.url, i)" class="link">
                 <span class="icon">
-                    <fa-icon [icon]="selectIcon(item.name)"></fa-icon>
+                    <fa-icon [icon]="selectIcon(item.name)" size="lg"></fa-icon>
                 </span>
                 <span class="text">{{ item.name }}</span>
             </button>

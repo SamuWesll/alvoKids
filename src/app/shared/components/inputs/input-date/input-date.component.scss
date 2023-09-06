@@ -1,0 +1,34 @@
+// @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto&display=swap');
+
+.content {
+    height: 5vh;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input[type="date"] {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        border: solid rgb(158, 153, 153);
+        padding-left: 0.5rem;
+        font-size: 0.9rem;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+        font-weight: 500;
+        color: rgb(116, 116, 116);
+    }
+    input[type="date"]:before {
+        // color: lightgrey;
+        content: attr(placeholder) !important;
+        margin-right: 0.5em;
+      }
+
+    ::-webkit-calendar-picker-indicator {
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 3px;
+        color: rgb(158, 153, 153);
+    }
+}

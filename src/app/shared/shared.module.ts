@@ -10,6 +10,8 @@ import { InputMaskModule } from '@ngneat/input-mask';
 import { NavbarVisitorComponent } from './components/navbar/navbar-visitor/navbar-visitor.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonAddComponent } from './components/button-add/button-add.component';
+import { InputDateComponent } from './components/inputs/input-date/input-date.component';
+import { InputToggleComponent } from './components/inputs/input-toggle/input-toggle.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ButtonAddComponent } from './components/button-add/button-add.component
     InputPhoneComponent,
     NavbarVisitorComponent,
     ButtonAddComponent,
+    InputDateComponent,
+    InputToggleComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,8 @@ import { ButtonAddComponent } from './components/button-add/button-add.component
     NavbarVisitorComponent,
     FontAwesomeModule,
     ButtonAddComponent,
+    InputDateComponent,
+    InputToggleComponent,
   ]
 })
 export class SharedModule { }

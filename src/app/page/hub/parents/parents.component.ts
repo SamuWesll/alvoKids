@@ -50,8 +50,15 @@ export class ParentsComponent implements OnInit {
     this.router.navigateByUrl('visitor');
   }
 
+  getVisitorLocal() {
+    if (this.visitorService.getVisitor()) {
+      this.router.navigateByUrl('visitor');
+    }
+  }
+
   ngOnInit(): void {
-    this.criarFormulario()
+    this.criarFormulario();
+    this.getVisitorLocal();
   }
 
 }

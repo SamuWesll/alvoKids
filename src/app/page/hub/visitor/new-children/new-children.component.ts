@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ChildrenStorage } from 'src/app/shared/model/Children.model';
+import { ChildrenService } from 'src/app/shared/service/children.service';
 
 @Component({
   selector: 'app-new-children',
@@ -12,13 +15,15 @@ export class NewChildrenComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
+    private childrenService: ChildrenService,
+    private router: Router,
     ) {
 
   }
 
   criarFormulario(): void {
     this.formGroup = this.formBuilder.group({
-      fullname: ['', [
+      fullName: ['', [
         Validators.required,
         Validators.minLength(10)
       ]],
@@ -44,6 +49,24 @@ export class NewChildrenComponent implements OnInit{
 
   disableObsAllergic(event: any) {
     
+  }
+
+  submit() {
+    const { fullName, surname, birthDate, flImage, flAllergic, allergic, observation } = this.formGroup.value;
+  
+    const children: ChildrenStorage = {
+      fullName,
+      surname,
+      birthDate,
+      flImage,
+      flAllergic,
+      allergic,
+      observation
+    }
+
+    this.childrenService.setVisitorStorage(children);
+
+    this.router.navigateByUrl('/visitor/children');
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 <app-header title="Cadastrando criança..." [backButton]="true"></app-header>
-<form [formGroup]="formGroup" class="main">
+<form [formGroup]="formGroup" class="main" (ngSubmit)="submit()">
 
-    <app-input-field formControlName="fullname" label="Nome completo" type="text" />
+    <app-input-field formControlName="fullName" label="Nome completo" type="text" />
 
     <app-input-field formControlName="surname" label="Apelido" type="text" />
 

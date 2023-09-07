@@ -1,0 +1,29 @@
+<div class="card">
+    <span class="image">
+        <fa-icon class="icon" [icon]="faCamera" size="2x"></fa-icon>
+    </span>
+
+    <div class="info">
+        <span>
+            <strong>Nome: </strong>
+            {{ children?.fullName }}
+        </span>
+
+        <span>
+            <strong>Apelido: </strong>
+            {{ children?.surname }}
+        </span>
+
+        <span>
+            <strong>Idade: </strong>
+            {{ maskAge() }}
+        </span>
+
+        <div class="iconsArea">
+            <fa-icon class="icon" [icon]="faCamera" size="lg" *ngIf="children?.flImage"></fa-icon>
+            <fa-icon class="icon" [icon]="faWarning" size="lg" *ngIf="children?.flAllergic"></fa-icon>
+            <fa-icon class="icon" [icon]="faCalendar" size="lg" *ngIf="birthdayMonth()"></fa-icon>
+            <fa-icon class="icon" [icon]="faStar" size="lg"></fa-icon>
+        </div>
+    </div>
+</div>

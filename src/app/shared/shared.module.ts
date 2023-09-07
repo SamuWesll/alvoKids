@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonAddComponent } from './components/button-add/button-add.component';
 import { InputDateComponent } from './components/inputs/input-date/input-date.component';
 import { InputToggleComponent } from './components/inputs/input-toggle/input-toggle.component';
+import { CardChildrenComponent } from './components/card-children/card-children.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { InputToggleComponent } from './components/inputs/input-toggle/input-tog
     ButtonAddComponent,
     InputDateComponent,
     InputToggleComponent,
+    CardChildrenComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { InputToggleComponent } from './components/inputs/input-toggle/input-tog
     ButtonAddComponent,
     InputDateComponent,
     InputToggleComponent,
+    CardChildrenComponent
   ]
 })
 export class SharedModule { }

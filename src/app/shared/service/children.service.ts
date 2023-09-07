@@ -17,7 +17,6 @@ export class ChildrenService {
     if (result == null) {
       this.storage.setItem(this.keyChildren, [children])
     } else {
-      // const childrenStorage = JSON.parse(result) as Array<ChildrenStorage>;
       result.push(children);
       this.storage.setItem(this.keyChildren, result)
     }

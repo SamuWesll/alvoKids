@@ -1,11 +1,10 @@
 <div class="content">
     <app-header title="Crianças" ></app-header>
     <main>
-        <!-- {childrens.map((children, index) => {
-            return (
-                <CardChildren key={index} storage={children}></CardChildren>
-            )
-        })} -->
+        <app-card-children 
+        *ngFor="let children of childrens; let i = index" 
+        [children]="children" 
+        />
     </main>
     <footer>
         <app-button-add url="/visitor/new-children"></app-button-add>

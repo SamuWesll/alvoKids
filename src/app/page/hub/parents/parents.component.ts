@@ -46,12 +46,12 @@ export class ParentsComponent implements OnInit {
       kinship
     }
 
-    this.visitorService.setVisitor(visitor);
+    this.visitorService.setVisitorStorage(visitor);
     this.router.navigateByUrl('visitor');
   }
 
   getVisitorLocal() {
-    if (this.visitorService.getVisitor()) {
+    if (this.visitorService.getVisitorStorage()) {
       this.router.navigateByUrl('visitor');
     }
   }

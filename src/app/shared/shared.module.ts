@@ -13,6 +13,10 @@ import { ButtonAddComponent } from './components/button-add/button-add.component
 import { InputDateComponent } from './components/inputs/input-date/input-date.component';
 import { InputToggleComponent } from './components/inputs/input-toggle/input-toggle.component';
 import { CardChildrenComponent } from './components/card-children/card-children.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RoomComponent } from './components/room/room.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { CardChildrenRoomComponent } from './components/card-children-room/card-children-room.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,9 @@ import { CardChildrenComponent } from './components/card-children/card-children.
     InputDateComponent,
     InputToggleComponent,
     CardChildrenComponent,
+    RoomComponent,
+    DividerComponent,
+    CardChildrenRoomComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +40,7 @@ import { CardChildrenComponent } from './components/card-children/card-children.
     ReactiveFormsModule,
     InputMaskModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   exports: [
     NotImplementationComponent,
@@ -46,7 +54,11 @@ import { CardChildrenComponent } from './components/card-children/card-children.
     ButtonAddComponent,
     InputDateComponent,
     InputToggleComponent,
-    CardChildrenComponent
+    CardChildrenComponent,
+    HttpClientModule,
+    RoomComponent,
+    DividerComponent,
+    CardChildrenRoomComponent
   ]
 })
 export class SharedModule { }

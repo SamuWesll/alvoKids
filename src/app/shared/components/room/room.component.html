@@ -1,0 +1,31 @@
+<div class="cardRoom">
+    <header>
+        <span class="iconHeader">
+            <!-- {
+                props.room.sold_off == false ? 
+                <MdOutlineMeetingRoom size={25}/> 
+                : <MdOutlineNoMeetingRoom size={25} />
+            } -->
+        </span>
+        <div class="info">
+            <span>
+                <strong>Turma: </strong>
+                {{ room.name }}
+            </span>
+            <!-- <span className={props.room.sold_off ? styles.vacanciesDisabled : styles.vacancies}> -->
+            <span>
+                <!-- {
+                    props.room.available_vacancies > 0 ?
+                    `Apenas ${props.room.available_vacancies} disponíveis`
+                    : `Não há vagas disponíveis`
+                } -->
+            </span>
+        </div>
+    </header>
+
+    <app-divider></app-divider>
+
+    <main>
+        <app-card-children-room *ngFor="let children of room.childrens" [children]="children"></app-card-children-room>
+    </main>
+</div>

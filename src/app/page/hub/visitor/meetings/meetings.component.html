@@ -1,1 +1,32 @@
-<app-header title="Culto" ></app-header>
+<app-header title="Culto"></app-header>
+<main class="meeting" *ngIf="cult; else noCult">
+    <div class="header">
+        <div>
+            <span>
+                <strong>Turma: </strong>
+                {{cult.name}}
+            </span>
+            <span>
+                <strong>Data: </strong>
+                {{ maskDate(cult.date) }} 
+            </span>
+        </div>
+        <span>
+            <strong>Local: </strong>
+            {{ cult.local }}
+        </span>
+
+        <app-room *ngFor="let room of rooms;  let i = index" [room]="room"></app-room>
+    </div>
+</main>
+
+<ng-template #noCult>
+    <main class="notMeeting">
+        <div>
+            <span>
+                <!-- <FiAlertTriangle size={40} color="orange" /> -->
+                Não há nenhuma reunião aberta
+            </span>
+        </div>
+    </main>
+</ng-template>

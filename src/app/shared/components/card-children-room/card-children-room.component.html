@@ -1,0 +1,42 @@
+<!-- <div 
+className={`${styles.card} ${isActivated == false ? styles.cardIsDisabled : null}`} 
+onClick={() => {props.isOldOff ? null : selectChild() }}
+> -->
+<div class="card">
+    <span class="image">
+        <!-- <HiOutlineCamera size={35}/> -->
+    </span>
+
+    <div class="info">
+        <span>
+            <strong>Nome: </strong>
+            {{ children.fullName }}
+        </span>
+
+        <span>
+            <strong>Apelido: </strong>
+            {{ children.surname }}
+        </span>
+
+        <span>
+            <strong>Idade: </strong>
+            <!-- {maskAge()} -->
+        </span>
+        
+        <div class="iconsArea">
+            <!-- {props.storage.flImage && 
+                <HiOutlineCamera className={styles.icon} size={20}/>
+            }
+
+            {props.storage.flAllergic &&
+                <FiAlertTriangle className={styles.icon} size={20}/>
+            }
+
+            {birthdayMonth() &&
+                <LuCalendarHeart className={styles.icon} size={20}/>
+            }
+
+            <HiOutlineStar className={styles.icon} size={20}/> -->
+        </div>
+    </div>
+</div>

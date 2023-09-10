@@ -1,11 +1,10 @@
 <div class="cardRoom">
     <header>
         <span class="iconHeader">
-            <!-- {
-                props.room.sold_off == false ? 
-                <MdOutlineMeetingRoom size={25}/> 
-                : <MdOutlineNoMeetingRoom size={25} />
-            } -->
+            <fa-icon class="open" [icon]="faDoorOpen" *ngIf="room.sold_off == false; else soldOff"></fa-icon>
+            <ng-template #soldOff>
+                <fa-icon class="closed" [icon]="faDoorClosed"></fa-icon>
+            </ng-template>
         </span>
         <div class="info">
             <span>
@@ -13,12 +12,11 @@
                 {{ room.name }}
             </span>
             <!-- <span className={props.room.sold_off ? styles.vacanciesDisabled : styles.vacancies}> -->
-            <span>
-                <!-- {
-                    props.room.available_vacancies > 0 ?
-                    `Apenas ${props.room.available_vacancies} disponíveis`
-                    : `Não há vagas disponíveis`
-                } -->
+            <span [ngClass]="room.sold_off ? 'vacanciesDisabled' : 'vacancies'">
+                {{
+                    room.available_vacancies > 0 ?
+                    'Apenas ${room.available_vacancies} disponíveis' : 'Não há vagas disponíveis'
+                }}
             </span>
         </div>
     </header>
@@ -26,6 +24,10 @@
     <app-divider></app-divider>
 
     <main>
-        <app-card-children-room *ngFor="let children of room.childrens" [children]="children"></app-card-children-room>
+        <app-card-children-room 
+            *ngFor="let children of room.childrens" 
+            [children]="children"
+            [isOldOff]="room.sold_off"
+        ></app-card-children-room>
     </main>
 </div>

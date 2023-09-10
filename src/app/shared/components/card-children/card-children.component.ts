@@ -35,6 +35,6 @@ export class CardChildrenComponent {
     const dateBirth = new Date(this.children?.birthDate as string)
 
     return date.getMonth() == dateBirth.getMonth();
-}
+  }
 
 }

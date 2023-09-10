@@ -17,6 +17,16 @@
         </span>
 
         <app-room *ngFor="let room of rooms;  let i = index" [room]="room"></app-room>
+        <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
+
+        <footer>
+            <button
+                [disabled]="childrensSelected.length <= 0"
+                [ngClass]="childrensSelected.length <= 0 ? 'button-disabled' : ''"
+            >
+                Concluir checkin
+            </button>
+        </footer>
     </div>
 </main>
 

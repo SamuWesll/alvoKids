@@ -1,0 +1,25 @@
+<div class="cardRoom">
+    <header>
+        <span class="iconHeader">
+            <fa-icon class="icon" [icon]="faExclamation"></fa-icon>
+        </span>
+        <div class="info">
+            <span>
+               <strong>Atenção!</strong>
+            </span>
+            <span class="vacanciesDisabled">
+                Infelizmente, para essas crianças não há sala
+            </span>
+        </div>
+    </header>
+
+    <app-divider></app-divider>
+
+    <main>
+        <app-card-children-room 
+            *ngFor="let children of childrens" 
+            [children]="children"
+            [isOldOff]="true"
+        ></app-card-children-room>
+    </main>
+</div>

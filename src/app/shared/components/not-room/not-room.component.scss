@@ -1,4 +1,3 @@
-
 .cardRoom {
     display: flex;
     flex-direction: column;
@@ -25,7 +24,7 @@
             border-radius: 120px;
             padding: 0.5rem;
 
-            .closed {
+            .icon {
                 color: rgb(186, 60, 60);
             }
         }
@@ -36,14 +35,14 @@
             justify-content: center;
             flex-direction: column;
             font-size: 0.9rem;
-            font-family: 'Roboto', sans-serif;
+            // font-family: 'Roboto', sans-serif;
+            font-size: 0.8rem !important;
 
             .vacancies {
                 font-size: 0.8rem !important;
             }
 
             .vacanciesDisabled {
-                font-size: 0.8rem !important;
                 color: red;
             }
         }

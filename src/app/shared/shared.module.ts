@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RoomComponent } from './components/room/room.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { CardChildrenRoomComponent } from './components/card-children-room/card-children-room.component';
+import { NotRoomComponent } from './components/not-room/not-room.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CardChildrenRoomComponent } from './components/card-children-room/card-
     RoomComponent,
     DividerComponent,
     CardChildrenRoomComponent,
+    NotRoomComponent,
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ import { CardChildrenRoomComponent } from './components/card-children-room/card-
     HttpClientModule,
     RoomComponent,
     DividerComponent,
-    CardChildrenRoomComponent
+    CardChildrenRoomComponent,
+    NotRoomComponent
   ]
 })
 export class SharedModule { }

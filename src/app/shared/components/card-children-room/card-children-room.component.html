@@ -1,10 +1,10 @@
-<!-- <div 
-className={`${styles.card} ${isActivated == false ? styles.cardIsDisabled : null}`} 
-onClick={() => {props.isOldOff ? null : selectChild() }}
-> -->
-<div class="card">
+<div 
+    class="card" 
+    [ngClass]="isActivated == false ? 'cardIsDisabled' : ''"
+    (click)="selectChildren()"
+>
     <span class="image">
-        <!-- <HiOutlineCamera size={35}/> -->
+        <fa-icon class="icon" [icon]="faCamera" size="2x"></fa-icon>
     </span>
 
     <div class="info">
@@ -20,23 +20,14 @@ onClick={() => {props.isOldOff ? null : selectChild() }}
 
         <span>
             <strong>Idade: </strong>
-            <!-- {maskAge()} -->
+            {{maskAge()}}
         </span>
         
         <div class="iconsArea">
-            <!-- {props.storage.flImage && 
-                <HiOutlineCamera className={styles.icon} size={20}/>
-            }
-
-            {props.storage.flAllergic &&
-                <FiAlertTriangle className={styles.icon} size={20}/>
-            }
-
-            {birthdayMonth() &&
-                <LuCalendarHeart className={styles.icon} size={20}/>
-            }
-
-            <HiOutlineStar className={styles.icon} size={20}/> -->
+            <fa-icon class="icon" [icon]="faCamera" size="lg" *ngIf="children?.flImage"></fa-icon>
+            <fa-icon class="icon" [icon]="faWarning" size="lg" *ngIf="children?.flAllergic"></fa-icon>
+            <fa-icon class="icon" [icon]="faCalendar" size="lg" *ngIf="birthdayMonth()"></fa-icon>
+            <fa-icon class="icon" [icon]="faStar" size="lg"></fa-icon>
         </div>
     </div>
 </div>

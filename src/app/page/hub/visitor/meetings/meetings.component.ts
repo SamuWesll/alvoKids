@@ -15,11 +15,12 @@ export class MeetingsComponent implements OnInit {
   rooms: Array<RoomResponse> = [];
   childrens: Array<ChildrenStorage> = [];
   childrensNotMeet: Array<ChildrenStorage> = [];
+  childrensSelected: Array<ChildrenStorage> = [];
 
   constructor(
     private visitorService: VisitorService,
     private childrenService: ChildrenService,
-  ) {
+    ) {
     
   }
 

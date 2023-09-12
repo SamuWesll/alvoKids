@@ -28,6 +28,7 @@
             *ngFor="let children of room.childrens" 
             [children]="children"
             [isOldOff]="room.sold_off"
+            (funcSelect)="select(children)"
         ></app-card-children-room>
     </main>
 </div>

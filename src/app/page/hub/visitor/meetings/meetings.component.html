@@ -16,7 +16,11 @@
             {{ cult.local }}
         </span>
 
-        <app-room *ngFor="let room of rooms;  let i = index" [room]="room"></app-room>
+        <app-room 
+            *ngFor="let room of rooms;  let i = index" 
+            [room]="room"
+            (selectChildren)="selectedChildren($event)"
+        ></app-room>
         <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
 
         <footer>

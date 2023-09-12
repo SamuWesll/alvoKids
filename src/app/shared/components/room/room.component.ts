@@ -14,6 +14,10 @@ export class RoomComponent implements OnInit {
   faDoorOpen = faDoorOpen;
   faDoorClosed = faDoorClosed;
 
+  select(children: any) {
+    this.selectChildren.emit(children);
+  }
+
   constructor() {}
 
   ngOnInit(): void {

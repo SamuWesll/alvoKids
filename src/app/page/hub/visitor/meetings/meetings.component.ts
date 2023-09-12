@@ -77,4 +77,22 @@ export class MeetingsComponent implements OnInit {
     })
   }
 
+  selectedChildren(value: any) {
+    const children = value as ChildrenStorage;
+    const list = this.childrensSelected;
+
+    if (list.length == 0) {
+      this.childrensSelected.push(children);
+    } else {
+      list.forEach((c, i) => {
+        if (c.fullName == children.fullName) {
+          this.childrensSelected.splice(i, 1);
+        } else {
+          this.childrensSelected.push(children);
+        }
+      })
+    }
+
+  }
+
 }

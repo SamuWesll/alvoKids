@@ -1,1 +1,25 @@
-<p>login works!</p>
+<main class="container">
+    <!-- <Image className={styles.image} src={logo} alt='logo'></Image> -->
+    <form class="content" [formGroup]="formGroup">
+        <section>
+
+            <app-input-field 
+                class="input" 
+                formControlName="login" 
+                label="Digite seu login" 
+                type="text" 
+            />
+
+            <app-input-field class="input" formControlName="password" label="Digite senha" type="password" />
+
+            <button>
+                <span>
+
+                </span>
+                <div>
+                    <span>Entrar</span>
+                </div>
+            </button>
+        </section>
+    </form>
+</main>

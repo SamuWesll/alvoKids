@@ -1,6 +1,6 @@
 <main class="container">
-    <!-- <Image className={styles.image} src={logo} alt='logo'></Image> -->
-    <form class="content" [formGroup]="formGroup">
+    <img class="image" src="../../../../assets/images/logo.png" alt="logo_o_alvo">
+    <form class="content" [formGroup]="formGroup" (submit)="submit()">
         <section>
 
             <app-input-field 
@@ -12,9 +12,9 @@
 
             <app-input-field class="input" formControlName="password" label="Digite senha" type="password" />
 
-            <button>
+            <button [disabled]="!formGroup.valid" type="submit">
                 <span>
-
+                    <fa-icon class="icon" [icon]="faArrow"></fa-icon>
                 </span>
                 <div>
                     <span>Entrar</span>

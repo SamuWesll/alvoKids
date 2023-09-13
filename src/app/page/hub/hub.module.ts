@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChildrenComponent } from './visitor/children/children.component';
 import { MeetingsComponent } from './visitor/meetings/meetings.component';
 import { NewChildrenComponent } from './visitor/new-children/new-children.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NewChildrenComponent } from './visitor/new-children/new-children.compon
     ParentsComponent,
     ChildrenComponent,
     MeetingsComponent,
-    NewChildrenComponent
+    NewChildrenComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { map } from 'rxjs';
 import { LoginService } from 'src/app/shared/service/login.service';
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
+    private router: Router,
     ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
   submit() {
     const { login, password } = this.formGroup.value;
     this.loginService.submitLogin(login, password).subscribe(sucess => {
-      alert('DEU BOA')
+      this.router.navigateByUrl('main')
     }, erro => {
       alert("deu ruim")
     })

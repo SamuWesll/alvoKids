@@ -18,6 +18,7 @@ import { RoomComponent } from './components/room/room.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { CardChildrenRoomComponent } from './components/card-children-room/card-children-room.component';
 import { NotRoomComponent } from './components/not-room/not-room.component';
+import { NavbarMainComponent } from './components/navbar/navbar-main/navbar-main.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NotRoomComponent } from './components/not-room/not-room.component';
     DividerComponent,
     CardChildrenRoomComponent,
     NotRoomComponent,
+    NavbarMainComponent,
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ import { NotRoomComponent } from './components/not-room/not-room.component';
     RoomComponent,
     DividerComponent,
     CardChildrenRoomComponent,
-    NotRoomComponent
+    NotRoomComponent,
+    NavbarMainComponent,
   ]
 })
 export class SharedModule { }

@@ -8,12 +8,30 @@ import { ParentsComponent } from './page/hub/parents/parents.component';
 import { ChildrenComponent } from './page/hub/visitor/children/children.component';
 import { MeetingsComponent } from './page/hub/visitor/meetings/meetings.component';
 import { NewChildrenComponent } from './page/hub/visitor/new-children/new-children.component';
+import { MainComponent } from './page/hub/main/main.component';
+import { MainChildrenComponent } from './page/hub/main/main-children/main-children.component';
+import { MainParentsComponent } from './page/hub/main/main-parents/main-parents.component';
+import { MainMeetingsComponent } from './page/hub/main/main-meetings/main-meetings.component';
+import { MainSettingsComponent } from './page/hub/main/main-settings/main-settings.component';
+import { MainInitComponent } from './page/hub/main/main-init/main-init.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
   { path:'login', component: LoginComponent },
   { path:'register', component: RegisterComponent },
   { path:'parents', component: ParentsComponent },
+  {
+    path: 'main',
+    component: MainComponent,
+    children: [
+      { path:'', redirectTo:'/main/*', pathMatch: 'full' },
+      { path:'*', component: MainInitComponent },
+      { path:'childrens', component: MainChildrenComponent },
+      { path:'parents', component: MainParentsComponent },
+      { path:'meetings', component: MainMeetingsComponent },
+      { path:'settings', component: MainSettingsComponent },
+    ]
+  },
   { 
     path:'visitor', 
     component: VisitorComponent, 

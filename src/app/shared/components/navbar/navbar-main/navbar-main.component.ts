@@ -64,7 +64,6 @@ export class NavbarMainComponent implements OnInit {
   initNavbarUrl() {
     this.lista.forEach((l, i) => {
       if (this.router.url == l.url) {
-        console.log(this.router.url)
         this.indexPage = i;
       }
     })

@@ -7,3 +7,7 @@ export interface ChildrenStorage {
     allergic: string,
     observation?: string,
 }
+
+export interface ChildrenModel extends ChildrenStorage {
+
+}

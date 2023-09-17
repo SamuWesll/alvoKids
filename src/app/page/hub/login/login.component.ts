@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   submit() {
     const { login, password } = this.formGroup.value;
-    this.loginService.submitLogin(login, password).subscribe(sucess => {
+    this.loginService.submitLogin(login, password).subscribe(result => {
       this.router.navigateByUrl('main')
     }, erro => {
       alert("deu ruim")

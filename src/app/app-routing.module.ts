@@ -14,6 +14,7 @@ import { MainParentsComponent } from './page/hub/main/main-parents/main-parents.
 import { MainMeetingsComponent } from './page/hub/main/main-meetings/main-meetings.component';
 import { MainSettingsComponent } from './page/hub/main/main-settings/main-settings.component';
 import { MainInitComponent } from './page/hub/main/main-init/main-init.component';
+import { ChildrenRegisterComponent } from './page/hub/register/children-register/children-register.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [
       { path:'meetings', component: MeetingsComponent },
     ]
   },
-  { path: 'visitor/new-children', component: NewChildrenComponent }
+  { path: 'visitor/new-children', component: NewChildrenComponent },
+  { path: 'new-children', component: ChildrenRegisterComponent }
 ];
 
 @NgModule({

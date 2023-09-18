@@ -1,0 +1,29 @@
+<app-header title="Cadastrando criança..." [backButton]="true"></app-header>
+<form [formGroup]="formGroup" class="main" (ngSubmit)="submit()">
+
+    <app-input-field formControlName="fullName" label="Nome completo" type="text" />
+
+    <app-input-field formControlName="surname" label="Apelido" type="text" />
+
+    <app-input-date label="Data de nascimento" formControlName="birthDate"/>
+    
+    <app-input-toggle identifier="flImage" label="Consedimento de imagem" formControlName="flImage"/>
+    
+    <app-input-toggle 
+        identifier="flAllergic" 
+        label="Alérgico" 
+        formControlName="flAllergic"
+        (outputSelect)="disableObsAllergic($event)"
+    />
+
+    <app-input-field formControlName="allergic" label="Alergico há" type="text" />
+    
+    <app-input-field formControlName="observation" label="Observação" type="text" />
+
+    <app-button-send 
+        buttonType="submit"
+        buttonTitle="Cadastrar"
+        [disabled]="!formGroup.valid"
+    />
+
+</form>

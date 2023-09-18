@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
-import { ChildrenStorage } from '../model/Children.model';
+import { ChildrenModel, ChildrenStorage } from '../model/Children.model';
+import { HttpClient } from '@angular/common/http';
+import { ChildrenUrl } from '../const/url/children';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,10 @@ export class ChildrenService {
 
   private keyChildren: string = 'children';
 
-  constructor(private storage: StorageService) { }
+  constructor(
+    private storage: StorageService,
+    private http: HttpClient,
+    ) { }
 
   setVisitorStorage(children: ChildrenStorage) {
     var result = this.getVisitorStorage() as any;
@@ -29,6 +35,18 @@ export class ChildrenService {
     });
 
     return visitorStorage;
+  }
+
+  postChildren(children: ChildrenModel) :Observable<void> {
+    let url = ChildrenUrl.HTTP_CHILDREN;
+
+    return this.http.post<void>(url, children);
+  }
+
+  getChildren() :Observable<ChildrenModel[]> {
+    let url = ChildrenUrl.HTTP_CHILDREN;
+
+    return this.http.get<ChildrenModel[]>(url);
   }
 
 }

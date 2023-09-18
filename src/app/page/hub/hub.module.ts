@@ -17,6 +17,7 @@ import { MainMeetingsComponent } from './main/main-meetings/main-meetings.compon
 import { MainSettingsComponent } from './main/main-settings/main-settings.component';
 import { MainParentsComponent } from './main/main-parents/main-parents.component';
 import { MainInitComponent } from './main/main-init/main-init.component';
+import { ChildrenRegisterComponent } from './register/children-register/children-register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MainInitComponent } from './main/main-init/main-init.component';
     MainMeetingsComponent,
     MainSettingsComponent,
     MainParentsComponent,
-    MainInitComponent
+    MainInitComponent,
+    ChildrenRegisterComponent
   ],
   imports: [
     CommonModule,

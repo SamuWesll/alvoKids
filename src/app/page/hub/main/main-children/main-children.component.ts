@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChildrenModel } from 'src/app/shared/model/Children.model';
+import { ChildrenService } from 'src/app/shared/service/children.service';
 
 @Component({
   selector: 'app-main-children',
@@ -8,21 +9,20 @@ import { ChildrenModel } from 'src/app/shared/model/Children.model';
 })
 export class MainChildrenComponent implements OnInit {
 
-  childrens: Array<ChildrenModel> = [
-    {
-      fullName: 'Meu Ben',
-      surname: 'Benja',
-      allergic: '',
-      birthDate: Date(),
-      flAllergic: false,
-      flImage: false,
-    }
-  ];
+  childrens: Array<ChildrenModel> = [];
 
-  constructor() {}
+  constructor(
+    private childrenService: ChildrenService,
+    ) {}
+
+  findChildren() {
+    this.childrenService.getChildren().subscribe(result => {
+      this.childrens = result;
+    })
+  }
 
   ngOnInit(): void {
-    
+    this.findChildren();
   }
 
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { map } from 'rxjs';
 import { LoginService } from 'src/app/shared/service/login.service';
+import { VisitorService } from 'src/app/shared/service/visitor.service';
 
 @Component({
   selector: 'app-login',
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
+    private visitorService: VisitorService,
     ) {}
 
   ngOnInit(): void {
@@ -41,7 +43,8 @@ export class LoginComponent implements OnInit {
   submit() {
     const { login, password } = this.formGroup.value;
     this.loginService.submitLogin(login, password).subscribe(result => {
-      this.router.navigateByUrl('main')
+      this.router.navigateByUrl('main');
+      this.visitorService.removeVisitor();
     }, erro => {
       alert("deu ruim")
     })

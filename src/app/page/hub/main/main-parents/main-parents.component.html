@@ -1,4 +1,12 @@
 <app-header title="Responsaveis" ></app-header>
-<main>
-    
-</main>
+<section class="content">
+    <main>
+        <app-card-parent 
+            *ngFor="let parent of parents"
+            [parent]="parent"
+        />
+    </main>
+    <footer>
+        <app-button-add url="/parents"></app-button-add>
+    </footer>
+</section>

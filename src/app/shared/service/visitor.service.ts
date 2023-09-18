@@ -37,4 +37,8 @@ export class VisitorService {
     return this.http.get<CultResponse>(url);
   }
 
+  removeVisitor() {
+    this.storage.removeItem(this.keyVisitor);
+  }
+
 }

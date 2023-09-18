@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { VisitorService } from 'src/app/shared/service/visitor.service';
 
 @Component({
   selector: 'app-hub',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HubComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private visitorService: VisitorService
+    ) {
 
   }
 
@@ -18,6 +22,14 @@ export class HubComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  getVisitorLocal() {
+    if (this.visitorService.getVisitorStorage()) {
+      this.router.navigateByUrl('visitor');
+    } else {
+      this.router.navigateByUrl('parents');
+    }
   }
 
 }

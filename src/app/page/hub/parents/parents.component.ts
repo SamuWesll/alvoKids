@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Visitor } from 'src/app/shared/model/Visitor.model';
+import { ResponsibleService } from 'src/app/shared/service/responsible.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
 
 @Component({
@@ -12,12 +13,13 @@ import { VisitorService } from 'src/app/shared/service/visitor.service';
 export class ParentsComponent implements OnInit {
 
   formGroup!: FormGroup;
-  submitted = false;
+  isVisitor?: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private visitorService: VisitorService,
     private router: Router,
+    private responsibleService: ResponsibleService,
   ) {}
 
   criarFormulario(): void {
@@ -46,13 +48,24 @@ export class ParentsComponent implements OnInit {
       kinship
     }
 
-    this.visitorService.setVisitorStorage(visitor);
-    this.router.navigateByUrl('visitor');
+    if (this.isVisitor) {
+      this.visitorService.setVisitorStorage(visitor);
+      this.router.navigateByUrl('visitor');
+    } else {
+      this.responsibleService.responsiblePost(visitor).subscribe(result => {
+        this.router.navigateByUrl('main/parents')
+      }, erro => {
+        alert(erro.message)
+      })
+    }
+
   }
 
   getVisitorLocal() {
     if (this.visitorService.getVisitorStorage()) {
-      this.router.navigateByUrl('visitor');
+      this.isVisitor = true;
+    } else {
+      this.isVisitor = false;
     }
   }
 

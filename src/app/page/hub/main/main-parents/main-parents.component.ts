@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentModel } from 'src/app/shared/model/Parent.model';
+import { ResponsibleService } from 'src/app/shared/service/responsible.service';
 
 @Component({
   selector: 'app-main-parents',
@@ -8,18 +9,18 @@ import { ParentModel } from 'src/app/shared/model/Parent.model';
 })
 export class MainParentsComponent implements OnInit {
 
-  parents: Array<ParentModel> = [
-    {
-      nameParent: 'Samuel Weslley',
-      kinship: 'Pai',
-      phoneNumber: 11984670655,
-    }
-  ];
+  parents: Array<ParentModel> = [];
 
-  constructor() {}
+  constructor(private responsibleService: ResponsibleService) {}
+
+  findResponsible() {
+    this.responsibleService.responsibleGet().subscribe(result => {
+      this.parents = result;
+    })
+  }
 
   ngOnInit(): void {
-    
+    this.findResponsible()
   }
 
 }

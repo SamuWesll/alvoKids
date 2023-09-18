@@ -19,7 +19,6 @@ export class CardChildrenComponent {
   constructor() { }
 
   maskAge() {
-    console.log(this.children?.birthDate)
     const dateBirth = new Date(this.children?.birthDate as string)
     const age = this.calcAge(dateBirth.toISOString());
 

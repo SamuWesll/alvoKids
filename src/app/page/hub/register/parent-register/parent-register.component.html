@@ -1,5 +1,5 @@
 <app-header 
-    title="Visitante" 
+    title="Cadastrando responsavel" 
     [backButton]="true"/>
 <form [formGroup]="formGroup" class="main" (ngSubmit)="handleVisitor()">
     <app-input-field 
@@ -21,7 +21,7 @@
 
     <app-button-send 
         buttonType="submit"
-        buttonTitle="Avançar"
+        buttonTitle="Cadastrar"
         [disabled]="!formGroup.valid"
     />
 

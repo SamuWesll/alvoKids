@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common'
 import { Visitor } from 'src/app/shared/model/Visitor.model';
 import { ResponsibleService } from 'src/app/shared/service/responsible.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
 
 @Component({
-  selector: 'app-parents',
-  templateUrl: './parents.component.html',
-  styleUrls: ['./parents.component.scss']
+  selector: 'app-parent-register',
+  templateUrl: './parent-register.component.html',
+  styleUrls: ['./parent-register.component.scss']
 })
-export class ParentsComponent implements OnInit {
+export class ParentRegisterComponent implements OnInit {
 
   formGroup!: FormGroup;
 
@@ -47,19 +46,16 @@ export class ParentsComponent implements OnInit {
       phoneNumber,
       kinship
     }
-    this.visitorService.setVisitorStorage(visitor);
-    this.router.navigateByUrl('visitor');
-  }
+    this.responsibleService.responsiblePost(visitor).subscribe(result => {
+      this.router.navigateByUrl('main/parents')
+    }, erro => {
+      alert(erro.message)
+    })
 
-  getVisitorLocal() {
-    if (this.visitorService.getVisitorStorage()) {
-      this.router.navigateByUrl('visitor');
-    }
   }
 
   ngOnInit(): void {
     this.criarFormulario();
-    this.getVisitorLocal();
   }
 
 }

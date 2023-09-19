@@ -24,12 +24,4 @@ export class HubComponent implements OnInit {
     
   }
 
-  getVisitorLocal() {
-    if (this.visitorService.getVisitorStorage()) {
-      this.router.navigateByUrl('visitor');
-    } else {
-      this.router.navigateByUrl('parents');
-    }
-  }
-
 }

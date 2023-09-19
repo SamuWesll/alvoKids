@@ -1,46 +1,55 @@
 <app-header title="Culto"></app-header>
-<main class="meeting" *ngIf="cult; else noCult">
-    <div class="header">
-        <div>
+<div *ngIf="!checkin; else checkinOk">
+    <main class="meeting" *ngIf="cult && checkInLoading == false">
+        <div class="header">
+            <div>
+                <span>
+                    <strong>Turma: </strong>
+                    {{cult.name}}
+                </span>
+                <span>
+                    <strong>Data: </strong>
+                    {{ maskDate(cult.date) }} 
+                </span>
+            </div>
             <span>
-                <strong>Turma: </strong>
-                {{cult.name}}
+                <strong>Local: </strong>
+                {{ cult.local }}
             </span>
-            <span>
-                <strong>Data: </strong>
-                {{ maskDate(cult.date) }} 
-            </span>
+    
+            <app-room 
+                *ngFor="let room of rooms;  let i = index" 
+                [room]="room"
+                (selectChildren)="selectedChildren($event)"
+            ></app-room>
+            <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
+    
+            <footer>
+                <button
+                    (click)="submitCheckIn()"
+                    [disabled]="childrensSelected.length <= 0"
+                    [ngClass]="childrensSelected.length <= 0 ? 'button-disabled' : ''"
+                >
+                    Concluir checkin
+                </button>
+            </footer>
         </div>
-        <span>
-            <strong>Local: </strong>
-            {{ cult.local }}
-        </span>
-
-        <app-room 
-            *ngFor="let room of rooms;  let i = index" 
-            [room]="room"
-            (selectChildren)="selectedChildren($event)"
-        ></app-room>
-        <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
-
-        <footer>
-            <button
-                [disabled]="childrensSelected.length <= 0"
-                [ngClass]="childrensSelected.length <= 0 ? 'button-disabled' : ''"
-            >
-                Concluir checkin
-            </button>
-        </footer>
-    </div>
-</main>
-
-<ng-template #noCult>
-    <main class="notMeeting">
+    </main>
+    
+    <main class="notMeeting" *ngIf="cult && checkInLoading">
+        <app-loading-checkin></app-loading-checkin>
+    </main>
+    
+    <main class="notMeeting"  *ngIf="cult == null">
         <div>
             <span>
-                <!-- <FiAlertTriangle size={40} color="orange" /> -->
+                <fa-icon class="icon" [icon]="faExclamation" size="3x"></fa-icon>
                 Não há nenhuma reunião aberta
             </span>
         </div>
     </main>
+</div>
+
+<ng-template #checkinOk>
+    <app-checkout-component></app-checkout-component>
 </ng-template>

@@ -20,6 +20,8 @@ import { CardChildrenRoomComponent } from './components/card-children-room/card-
 import { NotRoomComponent } from './components/not-room/not-room.component';
 import { NavbarMainComponent } from './components/navbar/navbar-main/navbar-main.component';
 import { CardParentComponent } from './components/card-parent/card-parent.component';
+import { LoadingCheckinComponent } from './components/loading-checkin/loading-checkin.component';
+import { CheckoutComponentComponent } from './components/checkout-component/checkout-component.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { CardParentComponent } from './components/card-parent/card-parent.compon
     NotRoomComponent,
     NavbarMainComponent,
     CardParentComponent,
+    LoadingCheckinComponent,
+    CheckoutComponentComponent,
   ],
   imports: [
     CommonModule,
@@ -67,7 +71,9 @@ import { CardParentComponent } from './components/card-parent/card-parent.compon
     CardChildrenRoomComponent,
     NotRoomComponent,
     NavbarMainComponent,
-    CardParentComponent
+    CardParentComponent,
+    LoadingCheckinComponent,
+    CheckoutComponentComponent
   ]
 })
 export class SharedModule { }

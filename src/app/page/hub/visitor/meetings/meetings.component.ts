@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ChildrenStorage } from 'src/app/shared/model/Children.model';
 import { CultResponse } from 'src/app/shared/model/Cult.model';
 import { RoomResponse } from 'src/app/shared/model/RoomResponse.model';
+import { Visitor, VisitorCheckIN } from 'src/app/shared/model/Visitor.model';
 import { ChildrenService } from 'src/app/shared/service/children.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-meetings',
@@ -16,6 +18,10 @@ export class MeetingsComponent implements OnInit {
   childrens: Array<ChildrenStorage> = [];
   childrensNotMeet: Array<ChildrenStorage> = [];
   childrensSelected: Array<ChildrenStorage> = [];
+  responsible: Visitor | undefined;
+  faExclamation = faExclamationTriangle
+  checkInLoading = false;
+  checkin:boolean = false;
 
   constructor(
     private visitorService: VisitorService,
@@ -31,6 +37,8 @@ export class MeetingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCult();
+    this.responsible = this.visitorService.getVisitorStorage();
+    this.isCodeCheck();
   }
 
   private getCult() {
@@ -92,7 +100,35 @@ export class MeetingsComponent implements OnInit {
         }
       })
     }
+  }
 
+  submitCheckIn() {
+    let checkIn: VisitorCheckIN = {
+      id_cult: this.cult.id_cult,
+      responsible: this.responsible as Visitor,
+      childrens: this.childrensSelected,
+    }
+
+    this.visitorService.checkIN(checkIn).subscribe(result => {
+      this.visitorService.setCodeCheckStorage(result);
+      this.checkInLoading = true;
+      this.awaitingCheckIn()
+    }, erro => {
+      alert(erro.message)
+    })
+  }
+
+  async awaitingCheckIn() {
+    setTimeout(() => {
+      this.checkInLoading = false;
+      this.checkin = true;
+    }, 3000);
+  }
+
+  isCodeCheck() {
+    if (this.visitorService.getCodeCheckStorage() != null) {
+      this.checkin = true;
+    }
   }
 
 }

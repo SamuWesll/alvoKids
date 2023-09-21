@@ -1,0 +1,33 @@
+.meeting {
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        margin: 0.3rem;
+        
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    footer {
+
+        button {
+            margin-top: 1rem;
+            width: 100%;
+            height: 3rem;
+            border-radius: 12px;
+            background-color: var(--colorDefault);
+            color: #ffff;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .button-disabled {
+            opacity: 50%;
+        }
+    }
+}

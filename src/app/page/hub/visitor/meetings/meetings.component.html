@@ -1,54 +1,8 @@
 <app-header title="Culto"></app-header>
-<div *ngIf="!checkin; else checkinOk">
-    <main class="meeting" *ngIf="cult && checkInLoading == false">
-        <div class="header">
-            <div>
-                <span>
-                    <strong>Turma: </strong>
-                    {{cult.name}}
-                </span>
-                <span>
-                    <strong>Data: </strong>
-                    {{ maskDate(cult.date) }} 
-                </span>
-            </div>
-            <span>
-                <strong>Local: </strong>
-                {{ cult.local }}
-            </span>
-    
-            <app-room 
-                *ngFor="let room of rooms;  let i = index" 
-                [room]="room"
-                (selectChildren)="selectedChildren($event)"
-            ></app-room>
-            <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
-    
-            <footer>
-                <button
-                    (click)="submitCheckIn()"
-                    [disabled]="childrensSelected.length <= 0"
-                    [ngClass]="childrensSelected.length <= 0 ? 'button-disabled' : ''"
-                >
-                    Concluir checkin
-                </button>
-            </footer>
-        </div>
-    </main>
-    
-    <main class="notMeeting" *ngIf="cult && checkInLoading">
-        <app-loading-checkin></app-loading-checkin>
-    </main>
-    
-    <main class="notMeeting"  *ngIf="cult == null">
-        <div>
-            <span>
-                <fa-icon class="icon" [icon]="faExclamation" size="3x"></fa-icon>
-                Não há nenhuma reunião aberta
-            </span>
-        </div>
-    </main>
-</div>
+<app-checkin-component 
+    *ngIf="checkin, else checkinOk"
+    (check)="checkIN($event)"
+/>
 
 <ng-template #checkinOk>
     <app-checkout-component></app-checkout-component>

@@ -9,6 +9,7 @@ import { faDoorOpen, faDoorClosed } from '@fortawesome/free-solid-svg-icons';
 })
 export class RoomComponent implements OnInit {
   @Input() room!: RoomResponse;
+  @Input() qtdChildrenSelected!: number;
   @Output() selectChildren = new EventEmitter();
 
   faDoorOpen = faDoorOpen;
@@ -21,6 +22,11 @@ export class RoomComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+  }
+
+  getVacancies() {
+    // return this.room.available_vacancies - this.qtdChildrenSelected;
+    return this.room.available_vacancies;
   }
 
 }

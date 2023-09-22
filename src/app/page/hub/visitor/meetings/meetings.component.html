@@ -1,4 +1,4 @@
-<app-header title="Culto"></app-header>
+<app-header [title]="checkin ? 'CHECK-IN' : 'CHECK-OUT'"></app-header>
 <app-checkin-component 
     *ngIf="checkin, else checkinOk"
     (check)="checkIN($event)"

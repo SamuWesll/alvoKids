@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ParentModel } from '../../model/Parent.model';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import { Visitor } from '../../model/Visitor.model';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CardParentComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    
+
   }
 
 }

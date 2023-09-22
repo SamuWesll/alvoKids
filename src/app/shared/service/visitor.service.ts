@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
-import { Visitor, VisitorCheckIN, VisitorCheckINResponse } from '../model/Visitor.model';
+import { Visitor, VisitorCheckIN, VisitorCheckINResponse, VisitorCheckOUTResponse } from '../model/Visitor.model';
 import { HttpClient } from '@angular/common/http';
 import { VisitorURL } from '../const/url/visitor';
 import { CultResponse } from '../model/Cult.model';
@@ -59,6 +59,11 @@ export class VisitorService {
     });
 
     return codeCheckStorage;
+  }
+
+  getInfoCheckoutCode(code: String) :Observable<VisitorCheckOUTResponse> {
+    let url = VisitorURL.HTTP_GET_CHECKOUT;
+    return this.http.get<VisitorCheckOUTResponse>(`${url}/${code}`);
   }
 
 }

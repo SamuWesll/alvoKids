@@ -15,7 +15,7 @@
             <span [ngClass]="room.sold_off ? 'vacanciesDisabled' : 'vacancies'">
                 {{
                     room.available_vacancies > 0 ?
-                    'Apenas ' +  room.available_vacancies + ' disponíveis' : 'Não há vagas disponíveis'
+                    'Apenas ' +  getVacancies() + ' disponíveis' : 'Não há vagas disponíveis'
                 }}
             </span>
         </div>

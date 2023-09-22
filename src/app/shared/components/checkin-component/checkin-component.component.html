@@ -18,6 +18,7 @@
     
             <app-room 
                 *ngFor="let room of rooms;  let i = index" 
+                [qtdChildrenSelected]="childrensSelected.length"
                 [room]="room"
                 (selectChildren)="selectedChildren($event)"
             ></app-room>

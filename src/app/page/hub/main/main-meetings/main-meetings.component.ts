@@ -57,8 +57,6 @@ export class MainMeetingsComponent implements OnInit {
         return this.calcAge(c.birthDate) >= minimum && this.calcAge(c.birthDate) <= maximum
       })
 
-      console.log(sons)
-
       if (sons.length > 0) {
         this.removeInMeet(sons);
         room.childrens = sons;

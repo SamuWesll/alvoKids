@@ -1,0 +1,16 @@
+main {
+    .title {
+        display: flex;
+        align-items: center;
+        padding-left: 0.7rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        background-color: rgba(193, 193, 189, 0.358);
+        
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgb(65, 64, 64);
+        }
+    }
+}

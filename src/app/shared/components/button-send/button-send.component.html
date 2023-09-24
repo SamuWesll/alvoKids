@@ -1,5 +1,5 @@
 <div class="content">
-    <button [disabled]=disabled type={{buttonType}}>
+    <button [disabled]=disabled type={{buttonType}} (click)="onClick()">
         <span>{{ buttonTitle }}</span>
     </button>
 </div>

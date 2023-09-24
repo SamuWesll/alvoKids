@@ -21,6 +21,7 @@
                 [qtdChildrenSelected]="childrensSelected.length"
                 [room]="room"
                 (selectChildren)="selectedChildren($event)"
+                [isVisitor]="true"
             ></app-room>
             <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
     

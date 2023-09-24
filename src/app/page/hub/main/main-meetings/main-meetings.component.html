@@ -20,6 +20,7 @@
             *ngFor="let room of rooms;  let i = index" 
             [room]="room"
             (selectChildren)="selectedChildren($event)"
+            [isVisitor]="false"
         ></app-room>
         <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
 

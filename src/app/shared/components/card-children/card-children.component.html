@@ -23,7 +23,7 @@
             <fa-icon class="icon" [icon]="faCamera" size="lg" *ngIf="children?.flImage"></fa-icon>
             <fa-icon class="icon" [icon]="faWarning" size="lg" *ngIf="children?.flAllergic"></fa-icon>
             <fa-icon class="icon" [icon]="faCalendar" size="lg" *ngIf="birthdayMonth()"></fa-icon>
-            <fa-icon class="icon" [icon]="faStar" size="lg"></fa-icon>
+            <fa-icon class="icon" [icon]="faStar" size="lg" *ngIf="isVisitor"></fa-icon>
         </div>
     </div>
 </div>

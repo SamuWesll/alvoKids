@@ -10,6 +10,7 @@ import { faCamera, faWarning, faStar, faCalendarAlt } from '@fortawesome/free-so
 export class CardChildrenComponent {
 
   @Input() children: ChildrenStorage | undefined;
+  @Input() isVisitor = false;
 
   faCamera = faCamera;
   faWarning = faWarning;

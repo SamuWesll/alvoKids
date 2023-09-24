@@ -16,6 +16,7 @@ export class CardChildrenRoomComponent {
   @Input() children!: ChildrenStorage;
   @Input() isActivated: boolean = false;
   @Input() isOldOff: boolean = false;
+  @Input() isVisitor: boolean = false;
   @Output() funcSelect = new EventEmitter();
 
   maskAge() {

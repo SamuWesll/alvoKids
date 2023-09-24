@@ -10,6 +10,7 @@ import { faDoorOpen, faDoorClosed } from '@fortawesome/free-solid-svg-icons';
 export class RoomComponent implements OnInit {
   @Input() room!: RoomResponse;
   @Input() qtdChildrenSelected!: number;
+  @Input() isVisitor = false;
   @Output() selectChildren = new EventEmitter();
 
   faDoorOpen = faDoorOpen;

@@ -7,13 +7,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ButtonSendComponent {
 
-  @Output() outputZerarVariaveis = new EventEmitter<any>();
+  @Output() click = new EventEmitter<any>();
   @Input() buttonTitle = 'Buscar';
   @Input() buttonType = 'button';
   @Input() disabled = false;
 
   constructor() {
 
+  }
+
+  onClick() {
+    this.click.emit();
   }
 
 }

@@ -37,4 +37,8 @@ export class CheckoutComponentComponent implements OnInit {
     this.parent = this.visitorService.getVisitorStorage()
   }
 
+  checkOuAll() {
+    
+  }
+
 }

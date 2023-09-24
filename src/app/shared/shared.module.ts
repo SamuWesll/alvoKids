@@ -79,7 +79,7 @@ import { ChildrenComponent } from './components/checkout-component/children/chil
     LoadingCheckinComponent,
     CheckoutComponentComponent,
     CheckinComponentComponent,
-    ChildrenComponent
+    ChildrenComponent,
   ]
 })
 export class SharedModule { }

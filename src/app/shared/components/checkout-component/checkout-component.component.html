@@ -10,8 +10,15 @@
         <span>Detalhes do checkin</span>
    </div>
    <section>
-        <div>
-            
+        <div class="datals">
+            <div>
+               <span>Código</span>
+               <span class=info-detals>{{ code?.code }}</span>
+            </div>
+            <div>
+               <span>Horario Check-In</span>
+               <span class=info-detals>19:25</span>
+            </div>
         </div>
    </section>
 
@@ -19,6 +26,9 @@
         <span>Crianças</span>
    </div>
    <section>
-        <!-- <app-card-children-room></app-card-children-room> -->
+        <app-children-checkout
+          *ngFor="let children of checkout?.childrens"
+          [children]="children"
+        />
    </section>
 </main>

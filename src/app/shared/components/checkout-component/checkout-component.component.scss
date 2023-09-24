@@ -13,4 +13,25 @@ main {
             color: rgb(65, 64, 64);
         }
     }
+
+    section {
+        .datals {
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                .info-detals {
+                    font-weight: 600;
+                    padding: 1rem;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
 }

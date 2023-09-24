@@ -11,13 +11,12 @@
                 <strong>Turma: </strong>
                 {{ room.name }}
             </span>
-            <!-- <span className={props.room.sold_off ? styles.vacanciesDisabled : styles.vacancies}> -->
-            <span [ngClass]="room.sold_off ? 'vacanciesDisabled' : 'vacancies'">
+            <!-- <span [ngClass]="room.sold_off ? 'vacanciesDisabled' : 'vacancies'">
                 {{
                     room.available_vacancies > 0 ?
                     'Apenas ' +  getVacancies() + ' disponíveis' : 'Não há vagas disponíveis'
                 }}
-            </span>
+            </span> -->
         </div>
     </header>
 

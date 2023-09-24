@@ -18,7 +18,7 @@ export interface VisitorCheckINResponse {
 }
 
 export interface VisitorCheckOUTResponse {
-    childrens: ParentModel[],
+    childrens: ChildrenModel[],
     id_cult: number,
     hours: string,
 }

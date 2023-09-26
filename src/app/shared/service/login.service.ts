@@ -3,13 +3,19 @@ import { Injectable } from '@angular/core';
 import { UserURL } from '../const/url/user';
 import { LoginResponse } from '../model/User.model';
 import { Observable } from 'rxjs';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  keyToken = "key_token";
+
+  constructor(
+    private http: HttpClient,
+    private localStorage: StorageService
+    ) { }
 
   submitLogin(login: string, password: string) :Observable<LoginResponse> {
     let url = UserURL.HTTP_LOGIN;
@@ -17,5 +23,19 @@ export class LoginService {
       login, 
       password,
     })
+  }
+
+  setTokenLocalStorage(loginResponse: LoginResponse) {
+    this.localStorage.setItem(this.keyToken, loginResponse);
+  }
+
+  getTokenLocalStorage() {
+    let token;
+
+    this.localStorage.getItem(this.keyToken).subscribe(result => {
+      token = result;
+    })
+
+    return token;
   }
 }

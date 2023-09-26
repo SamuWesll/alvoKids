@@ -30,6 +30,10 @@ export class StorageService {
     localStorage.removeItem(chave);
   }
 
+  removerAll() {
+    localStorage.clear();
+  }
+
   private converterEmJson(dado: string): any {
     try {
       return JSON.parse(dado);

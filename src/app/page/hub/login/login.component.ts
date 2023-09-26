@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { map } from 'rxjs';
 import { LoginService } from 'src/app/shared/service/login.service';
+import { StorageService } from 'src/app/shared/service/storage.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
 
 @Component({
@@ -33,21 +34,35 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private visitorService: VisitorService,
+    private localService: StorageService,
     ) {}
 
   ngOnInit(): void {
+    this.isLoggedIn();
     this.criarFormulario();
   }
 
   submit() {
     const { login, password } = this.formGroup.value;
     this.loginService.submitLogin(login, password).subscribe(result => {
+      this.validatedClear();
+      this.loginService.setTokenLocalStorage(result)
       this.router.navigateByUrl('main');
-      this.visitorService.removeVisitor();
     }, erro => {
       alert("deu ruim")
     })
+  }
+
+  private validatedClear() {
+    this.localService.removerAll();
+  }
+
+  private isLoggedIn() {
+    let result = this.loginService.getTokenLocalStorage();
+
+    if (result != null) {
+      this.router.navigateByUrl('main');
+    }
   }
 
 }

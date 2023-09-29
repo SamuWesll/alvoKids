@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ChildrenModel } from 'src/app/shared/model/Children.model';
 import { CultResponse } from 'src/app/shared/model/Cult.model';
 import { RoomResponse } from 'src/app/shared/model/RoomResponse.model';
 import { ChildrenService } from 'src/app/shared/service/children.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MemberCheckIN } from 'src/app/shared/model/Member.model';
+import { MemberService } from 'src/app/shared/service/member.service';
 
 @Component({
   selector: 'app-checkin-member',
@@ -16,12 +20,27 @@ export class CheckinMemberComponent {
   childrens: Array<ChildrenModel> = [];
   childrensNotMeet: Array<ChildrenModel> = [];
   childrensSelected: Array<ChildrenModel> = [];
+  checkInLoading = false;
+  @Output() check = new EventEmitter<boolean>();
+
+  faExclamation = faExclamationTriangle
+  formGroup!: FormGroup;
 
   constructor(
     private visitorService: VisitorService,
     private childrenService: ChildrenService,
+    private formBuilder: FormBuilder,
+    private memberService: MemberService,
     ) {
     
+  }
+
+  criarFormulario(): void {
+    this.formGroup = this.formBuilder.group({
+      idParent: [0, [
+        Validators.required,
+      ]],
+    })
   }
 
   maskDate(dat: Date) {
@@ -31,6 +50,7 @@ export class CheckinMemberComponent {
 
   ngOnInit(): void {
     this.getCult();
+    this.criarFormulario()
   }
 
   private getCult() {
@@ -94,6 +114,18 @@ export class CheckinMemberComponent {
         }
       })
     }
+  }
 
+  submitCheckIn() {
+    const { idParent } = this.formGroup.value;
+
+    let checkIn: MemberCheckIN = {
+      ids_children: this.childrensSelected.map(c => c.id) as number[],
+      id_parent: Number.parseInt(idParent),
+    }
+
+    this.memberService.postCheckIn(checkIn).subscribe(result => {
+      this.check.emit(false);
+    })
   }
 }

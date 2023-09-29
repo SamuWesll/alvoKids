@@ -17,5 +17,5 @@ export enum StatusChildren {
 }
 
 export interface ChildrenModel extends ChildrenStorage {
-
+    id?: number
 }

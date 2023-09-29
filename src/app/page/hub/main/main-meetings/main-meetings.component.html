@@ -1,5 +1,8 @@
 <app-header [title]="checkin ? 'Check-In' : 'Check-Out'"></app-header>
-<app-checkin-member *ngIf="checkin, else checkinOk"/>
+<app-checkin-member 
+    *ngIf="checkin, else checkinOk"
+    (check)="checkIN($event)"
+/>
 
 <ng-template #checkinOk>
     <app-checkout-member />

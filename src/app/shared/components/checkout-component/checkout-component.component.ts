@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorService } from '../../service/visitor.service';
 import { Visitor, VisitorCheckINResponse, VisitorCheckOUTResponse } from '../../model/Visitor.model';
+import { ParentModel } from '../../model/Parent.model';
 
 @Component({
   selector: 'app-checkout-component',
@@ -10,7 +11,7 @@ import { Visitor, VisitorCheckINResponse, VisitorCheckOUTResponse } from '../../
 export class CheckoutComponentComponent implements OnInit {
 
   code: VisitorCheckINResponse | undefined;
-  parent: Visitor | undefined;
+  parent: ParentModel | undefined;
   checkout?: VisitorCheckOUTResponse;
 
   constructor(private visitorService: VisitorService) {

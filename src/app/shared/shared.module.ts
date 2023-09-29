@@ -26,6 +26,7 @@ import { CheckinComponentComponent } from './components/checkin-component/checki
 import { ChildrenComponent } from './components/checkout-component/children/children.component';
 import { CheckinMemberComponent } from './components/member/checkin-member/checkin-member.component';
 import { CheckoutMemberComponent } from './components/member/checkout-member/checkout-member.component';
+import { SelectParentComponent } from './components/select/select-parent/select-parent.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CheckoutMemberComponent } from './components/member/checkout-member/che
     ChildrenComponent,
     CheckinMemberComponent,
     CheckoutMemberComponent,
+    SelectParentComponent,
   ],
   imports: [
     CommonModule,
@@ -86,6 +88,7 @@ import { CheckoutMemberComponent } from './components/member/checkout-member/che
     ChildrenComponent,
     CheckinMemberComponent,
     CheckoutMemberComponent,
+    SelectParentComponent,
   ]
 })
 export class SharedModule { }

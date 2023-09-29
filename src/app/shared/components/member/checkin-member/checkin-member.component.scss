@@ -54,3 +54,31 @@
         }
     }
 }
+
+.notMeeting {
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        span {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            padding: 1rem;
+
+            .icon {
+                margin-bottom: 1rem;
+                color: orange;
+            }
+        }
+    }
+}

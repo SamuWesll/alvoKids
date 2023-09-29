@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MemberUrl } from '../const/url/member';
+import { MemberCheckIN } from '../model/Member.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,11 @@ export class MemberService {
         'idFamily': `${idFamily}`
       }
     })
+  }
+
+  postCheckIn(body: MemberCheckIN) :Observable<any> {
+    const url = MemberUrl.HTTP_POST_CHECKIN;
+
+    return this.http.post<any>(url, body);
   }
 }

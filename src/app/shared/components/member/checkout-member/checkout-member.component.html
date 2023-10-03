@@ -1,1 +1,37 @@
-<p>checkout-member works!</p>
+<main>
+    <div class="title">
+        <span>Responsável</span>
+    </div>
+    <section>
+        <app-card-parent [parent]="checkout?.responsible_checkin" />
+    </section>
+
+    <div class="title">
+        <span>Detalhes do checkin</span>
+    </div>
+
+    <section>
+        <div class="datals">
+            <div>
+                <span>Código</span>
+                <span class=info-detals>{{ checkout?.code }}</span>
+            </div>
+            <div>
+                <span>Horario Check-In</span>
+                <span class=info-detals>19:25</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="title">
+        <span>Crianças</span>
+    </div>
+
+    <section>
+        <app-children-checkout *ngFor="let children of checkout?.childrens" [children]="children" />
+        <div class="button-send">
+            <app-button-send (click)="checkOuAll()" buttonTitle="Check-Out de todos" />
+        </div>
+    </section>
+
+</main>

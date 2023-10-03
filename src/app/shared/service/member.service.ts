@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MemberUrl } from '../const/url/member';
-import { MemberCheckIN } from '../model/Member.model';
+import { MemberCheckIN, MemberCheckOut } from '../model/Member.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,9 @@ export class MemberService {
 
   constructor(private http: HttpClient) { }
 
-  getPendingCheckout(idFamily: number) :Observable<any> {
+  getPendingCheckout(idFamily: number) :Observable<MemberCheckOut> {
     const url = MemberUrl.HTTP_GET_CHECKOUT;
-    return this.http.get<any>(url, {
+    return this.http.get<MemberCheckOut>(url, {
       headers: {
         'idFamily': `${idFamily}`
       }

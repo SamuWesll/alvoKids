@@ -39,6 +39,7 @@ export class CheckinMemberComponent {
     this.formGroup = this.formBuilder.group({
       idParent: [0, [
         Validators.required,
+        Validators.min(1)
       ]],
     })
   }
@@ -125,7 +126,15 @@ export class CheckinMemberComponent {
     }
 
     this.memberService.postCheckIn(checkIn).subscribe(result => {
-      this.check.emit(false);
+      this.awaitingCheckIn()
     })
+  }
+
+  async awaitingCheckIn() {
+    this.checkInLoading = true;
+    setTimeout(() => {
+      this.checkInLoading = false;
+      this.check.emit(false);
+    }, 3000);
   }
 }

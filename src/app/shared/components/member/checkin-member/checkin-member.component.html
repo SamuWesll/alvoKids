@@ -24,7 +24,11 @@
                 (selectChildren)="selectedChildren($event)"
                 [isVisitor]="false"
             ></app-room>
-            <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
+
+            <app-not-room 
+                *ngIf="childrensNotMeet.length > 0" 
+                [childrens]="childrensNotMeet"
+            />
 
             <footer>
                 <button

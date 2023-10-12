@@ -14,3 +14,10 @@ export interface MemberCheckOut {
     responsible_checkout?: ParentModel,
     code?: string
 }
+
+export interface LoginCreateRequest {
+    name_family: string,
+    email: string,
+    login: string,
+    password: string,
+}

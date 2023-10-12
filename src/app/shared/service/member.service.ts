@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MemberUrl } from '../const/url/member';
-import { MemberCheckIN, MemberCheckOut } from '../model/Member.model';
+import { LoginCreateRequest, MemberCheckIN, MemberCheckOut } from '../model/Member.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,11 @@ export class MemberService {
     const url = MemberUrl.HTTP_POST_CHECKIN;
 
     return this.http.post<any>(url, body);
+  }
+
+  createLogin(login: LoginCreateRequest) :Observable<any> {
+    const url = MemberUrl.HTTP_POST_CREATE_LOGIN;
+
+    return this.http.post<any>(url, login);
   }
 }

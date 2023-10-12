@@ -30,6 +30,8 @@ export class ChildrenComponent {
     switch (status) {
       case StatusChildren.IN_MEET:
         return "Em sala"
+      case StatusChildren.WITHDRAWN:
+        return "Saída realizada"
       default:
         return "not map"
     }

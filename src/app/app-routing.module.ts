@@ -16,6 +16,7 @@ import { MainSettingsComponent } from './page/hub/main/main-settings/main-settin
 import { MainInitComponent } from './page/hub/main/main-init/main-init.component';
 import { ChildrenRegisterComponent } from './page/hub/register/children-register/children-register.component';
 import { ParentRegisterComponent } from './page/hub/register/parent-register/parent-register.component';
+import { AdminComponent } from './page/admin/admin.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -46,6 +47,10 @@ const routes: Routes = [
   { path: 'visitor/new-children', component: NewChildrenComponent },
   { path: 'new-children', component: ChildrenRegisterComponent },
   { path: 'new-parent', component: ParentRegisterComponent },
+  { 
+    path: 'admin', 
+    component: AdminComponent,
+  }
 ];
 
 @NgModule({

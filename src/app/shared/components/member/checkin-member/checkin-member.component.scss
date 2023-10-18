@@ -15,15 +15,23 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto';
             padding: 1rem;
+
+            strong {
+                font-family: 'Roboto-Bold';
+            }
         }
     }
 }
 
 .meeting {
     margin: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
+
+    strong {
+        font-family: 'Roboto-Bold';
+    }
 
     .header {
         display: flex;
@@ -72,7 +80,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto';
             padding: 1rem;
 
             .icon {

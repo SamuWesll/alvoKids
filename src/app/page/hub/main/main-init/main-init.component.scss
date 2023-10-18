@@ -1,7 +1,5 @@
 
 header {
-    margin: 0px;
-    height: 22vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,16 +15,34 @@ header {
         width: 100%;
         background-color: var(--colorDefault);
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding: 0.4rem;
 
         span {
             color: white;
             font-size: 1.4rem;
+            margin-left: 1rem;
+            font-family: 'Righteous-Regular';
         }
     }
 }
 
-main {
+.content {
+    .content-family {
+        border: 1px solid;
+        margin: 1rem;
+        padding: 0.5rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Roboto';
+        span {
+            margin-top: 0.2rem;
 
+            strong {
+                font-family: 'Roboto-Bold';
+            }
+        }
+        
+    }
 }

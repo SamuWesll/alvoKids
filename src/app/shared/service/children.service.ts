@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { ChildrenModel, ChildrenStorage } from '../model/Children.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ChildrenUrl } from '../const/url/children';
 import { Observable } from 'rxjs';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class ChildrenService {
 
   constructor(
     private storage: StorageService,
+    private login: LoginService,
     private http: HttpClient,
     ) { }
 
@@ -39,14 +41,26 @@ export class ChildrenService {
 
   postChildren(children: ChildrenModel) :Observable<void> {
     let url = ChildrenUrl.HTTP_CHILDREN;
+    let auth = this.login.getTokenLocalStorage() as any;
 
-    return this.http.post<void>(url, children);
+    console.log(auth)
+
+    return this.http.post<void>(url, children, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    });
   }
 
   getChildren() :Observable<ChildrenModel[]> {
     let url = ChildrenUrl.HTTP_CHILDREN;
+    let auth =  this.login.getTokenLocalStorage() as any;
 
-    return this.http.get<ChildrenModel[]>(url);
+    return this.http.get<ChildrenModel[]>(url, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    });
   }
 
 }

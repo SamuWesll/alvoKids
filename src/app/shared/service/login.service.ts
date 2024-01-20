@@ -32,7 +32,7 @@ export class LoginService {
   getTokenLocalStorage() {
     let token;
 
-    this.localStorage.getItem(this.keyToken).subscribe(result => {
+    this.localStorage.getItem(this.keyToken).subscribe((result: LoginResponse) => {
       token = result;
     })
 

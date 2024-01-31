@@ -52,7 +52,7 @@ export class NewChildrenComponent implements OnInit{
   }
 
   submit() {
-    const { fullName, surname, birthDate, flImage, flAllergic, allergic, observation } = this.formGroup.value;
+    const { fullName, surname, birthDate, flImage, flAllergic, allergic, observation, idRoom } = this.formGroup.value;
   
     const children: ChildrenStorage = {
       fullName,
@@ -61,7 +61,8 @@ export class NewChildrenComponent implements OnInit{
       flImage,
       flAllergic,
       allergic,
-      observation
+      observation,
+      idRoom
     }
 
     this.childrenService.setVisitorStorage(children);

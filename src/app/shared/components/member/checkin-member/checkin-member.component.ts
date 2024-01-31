@@ -121,8 +121,14 @@ export class CheckinMemberComponent {
     const { idParent } = this.formGroup.value;
 
     let checkIn: MemberCheckIN = {
-      ids_children: this.childrensSelected.map(c => c.id) as number[],
+      childrens: this.childrensSelected.map(c => {
+        return {
+          id_children: c.id,
+          id_room: c.idRoom,
+        }
+      }) as any,
       id_parent: Number.parseInt(idParent),
+      id_cult: this.cult.id_cult,
     }
 
     this.memberService.postCheckIn(checkIn).subscribe(result => {

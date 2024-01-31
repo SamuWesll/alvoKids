@@ -1,6 +1,7 @@
 import { ChildrenStorage } from "./Children.model";
 
 export interface RoomResponse {
+    id: number,
     name: string,
     total_vacancies: number,
     available_vacancies: number,

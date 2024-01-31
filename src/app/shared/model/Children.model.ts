@@ -7,6 +7,7 @@ export interface ChildrenStorage {
     allergic: string,
     observation?: string,
     status?: StatusChildren,
+    idRoom?: number,
 }
 
 export enum StatusChildren {

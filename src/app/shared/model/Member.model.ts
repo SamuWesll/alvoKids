@@ -3,7 +3,7 @@ import { ParentModel } from "./Parent.model";
 
 export interface MemberCheckIN {
     id_parent: number,
-    ids_children: Array<number>,
+    childrens: Array<ChildrenCheckIn>,
     id_cult?: number,
 }
 
@@ -20,4 +20,9 @@ export interface LoginCreateRequest {
     email: string,
     login: string,
     password: string,
+}
+
+interface ChildrenCheckIn {
+    id_children: number,
+    id_room: number,
 }

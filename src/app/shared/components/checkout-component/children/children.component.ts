@@ -32,6 +32,8 @@ export class ChildrenComponent {
         return "Em sala"
       case StatusChildren.WITHDRAWN:
         return "Saída realizada"
+      case StatusChildren.AWAITING_CONFIRMATION_CHECK_IN:
+        return "check-in pendente"
       default:
         return "not map"
     }

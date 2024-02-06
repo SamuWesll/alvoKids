@@ -6,11 +6,11 @@
         <app-card-parent [parent]="checkout?.responsible_checkin" />
     </section>
 
-    <div class="title">
+    <div class="title" *ngIf="checkout?.code != null">
         <span>Detalhes do checkin</span>
     </div>
 
-    <section>
+    <section *ngIf="checkout?.code != null">
         <div class="datals">
             <div>
                 <span>Código</span>

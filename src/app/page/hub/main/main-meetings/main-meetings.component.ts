@@ -25,7 +25,7 @@ export class MainMeetingsComponent implements OnInit {
   }
 
   async getCheckout() {
-    await this.memberService.getPendingCheckout(0).subscribe(result => {
+    await this.memberService.getPendingCheckout().subscribe(result => {
       if (result != null) {
         this.memberCheckOut = result;
         this.checkin = false;

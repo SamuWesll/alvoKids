@@ -15,13 +15,13 @@ export class MemberService {
     private loginService: LoginService
     ) { }
 
-  getPendingCheckout(idFamily: number) :Observable<MemberCheckOut> {
+  getPendingCheckout() :Observable<MemberCheckOut> {
     const url = MemberUrl.HTTP_GET_CHECKOUT;
     let auth =  this.loginService.getTokenLocalStorage() as any;
 
     return this.http.get<MemberCheckOut>(url, {
       headers: {
-        'idFamily': `${idFamily}`
+        'Authorization': `Bearer ${auth.token}`
       }
     })
   }

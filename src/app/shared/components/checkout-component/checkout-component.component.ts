@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorService } from '../../service/visitor.service';
-import { Visitor, VisitorCheckINResponse, VisitorCheckOUTResponse } from '../../model/Visitor.model';
+import { Visitor, VisitorCheckINResponse, VisitorCheckOUTResponse, VisitorCheckOutRequest } from '../../model/Visitor.model';
 import { ParentModel } from '../../model/Parent.model';
 
 @Component({
@@ -39,7 +39,13 @@ export class CheckoutComponentComponent implements OnInit {
   }
 
   checkOuAll() {
-    
+    var body: VisitorCheckOutRequest = {
+     code: this.code?.code as string,
+     codes_children: this.checkout?.childrens.map(r => r.id) as Number[],
+    }
+    this.visitorService.postCheckout(body).subscribe(result => {
+      console.log(result)
+    })
   }
 
 }

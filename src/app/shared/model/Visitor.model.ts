@@ -22,3 +22,8 @@ export interface VisitorCheckOUTResponse {
     id_cult: number,
     hours: string,
 }
+
+export interface VisitorCheckOutRequest {
+    code: string,
+    codes_children: Number[],
+}

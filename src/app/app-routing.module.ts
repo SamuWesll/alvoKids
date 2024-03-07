@@ -20,6 +20,10 @@ import { AdminComponent } from './page/admin/admin.component';
 import { LoginAdminComponent } from './page/admin/login-admin/login-admin.component';
 import { MainAdminComponent } from './page/admin/main-admin/main-admin.component';
 import { HomeComponent } from './page/admin/main/home/home.component';
+import { PermissionComponent } from './page/admin/main/permission/permission.component';
+import { ChildrenAdminComponent } from './page/admin/main/children-admin/children-admin.component';
+import { MeetAdminComponent } from './page/admin/main/meet-admin/meet-admin.component';
+import { RoomAdminComponent } from './page/admin/main/room-admin/room-admin.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -58,7 +62,11 @@ const routes: Routes = [
     component: MainAdminComponent,
     children: [
       { path: '', redirectTo:'/admin/*', pathMatch:'full' },
-      { path:'*', component: HomeComponent }
+      { path:'*', component: HomeComponent },
+      { path:'permission', component: PermissionComponent },
+      { path:'children', component: ChildrenAdminComponent },
+      { path:'meet', component: MeetAdminComponent },
+      { path:'room', component: RoomAdminComponent },
     ]
   }
 ];

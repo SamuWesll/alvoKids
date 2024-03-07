@@ -1,7 +1,7 @@
 <div class="menu-admin">
     <ul>
         <li *ngFor="let item of itens; let i = index" class="{{indexPage == i ? 'active' : null}}">
-            <button (click)="onSelected(i)">
+            <button (click)="onSelected(i, item.direct)">
                 <span>
                     <fa-icon [icon]="item.icon"></fa-icon>
                 </span>

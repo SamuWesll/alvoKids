@@ -33,8 +33,9 @@ export class NavbarAdminComponent implements OnInit {
     this.initNavbar();
   }
 
-  onSelected(index: any) {
+  onSelected(index: any, url: string) {
     this.indexPage = index;
+    this.router.navigateByUrl(url)
   } 
 
   initNavbar() :any{

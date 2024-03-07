@@ -7,6 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MainAdminComponent } from './main-admin/main-admin.component';
 import { HomeComponent } from './main/home/home.component';
+import { PermissionComponent } from './main/permission/permission.component';
+import { ChildrenAdminComponent } from './main/children-admin/children-admin.component';
+import { MeetAdminComponent } from './main/meet-admin/meet-admin.component';
+import { RoomAdminComponent } from './main/room-admin/room-admin.component';
 
 
 
@@ -15,7 +19,11 @@ import { HomeComponent } from './main/home/home.component';
     AdminComponent,
     LoginAdminComponent,
     MainAdminComponent,
-    HomeComponent
+    HomeComponent,
+    PermissionComponent,
+    ChildrenAdminComponent,
+    MeetAdminComponent,
+    RoomAdminComponent
   ],
   imports: [
     CommonModule,

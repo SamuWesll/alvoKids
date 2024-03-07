@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { HubModule } from './page/hub/hub.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AdminModule } from './page/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HubModule,
     HttpClientModule,
     FontAwesomeModule,
+    AdminModule
   ],
   bootstrap: [AppComponent]
 })

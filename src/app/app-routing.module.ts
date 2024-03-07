@@ -17,6 +17,9 @@ import { MainInitComponent } from './page/hub/main/main-init/main-init.component
 import { ChildrenRegisterComponent } from './page/hub/register/children-register/children-register.component';
 import { ParentRegisterComponent } from './page/hub/register/parent-register/parent-register.component';
 import { AdminComponent } from './page/admin/admin.component';
+import { LoginAdminComponent } from './page/admin/login-admin/login-admin.component';
+import { MainAdminComponent } from './page/admin/main-admin/main-admin.component';
+import { HomeComponent } from './page/admin/main/home/home.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -48,8 +51,15 @@ const routes: Routes = [
   { path: 'new-children', component: ChildrenRegisterComponent },
   { path: 'new-parent', component: ParentRegisterComponent },
   { 
+    path: 'admin/login', component: LoginAdminComponent,
+  },
+  {
     path: 'admin', 
-    component: AdminComponent,
+    component: MainAdminComponent,
+    children: [
+      { path: '', redirectTo:'/admin/*', pathMatch:'full' },
+      { path:'*', component: HomeComponent }
+    ]
   }
 ];
 

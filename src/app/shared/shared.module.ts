@@ -28,6 +28,7 @@ import { CheckinMemberComponent } from './components/member/checkin-member/check
 import { CheckoutMemberComponent } from './components/member/checkout-member/checkout-member.component';
 import { SelectParentComponent } from './components/select/select-parent/select-parent.component';
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
+import { HeaderAdminComponent } from './components/header/header-admin/header-admin.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-ad
     CheckoutMemberComponent,
     SelectParentComponent,
     NavbarAdminComponent,
+    HeaderAdminComponent,
   ],
   imports: [
     CommonModule,
@@ -91,7 +93,8 @@ import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-ad
     CheckinMemberComponent,
     CheckoutMemberComponent,
     SelectParentComponent,
-    NavbarAdminComponent
+    NavbarAdminComponent,
+    HeaderAdminComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,14 @@
+header {
+    margin: 10px;
+    font-family: Roboto;
+    color: rgb(82, 81, 81);
+
+    .header-title {
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin-left: 1rem;
+        }
+    }
+}

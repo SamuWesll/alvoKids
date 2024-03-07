@@ -11,8 +11,7 @@ import { PermissionComponent } from './main/permission/permission.component';
 import { ChildrenAdminComponent } from './main/children-admin/children-admin.component';
 import { MeetAdminComponent } from './main/meet-admin/meet-admin.component';
 import { RoomAdminComponent } from './main/room-admin/room-admin.component';
-
-
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -30,6 +29,7 @@ import { RoomAdminComponent } from './main/room-admin/room-admin.component';
     SharedModule,
     ReactiveFormsModule,
     RouterModule,
+    MatTableModule
   ]
 })
 export class AdminModule { }

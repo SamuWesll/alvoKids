@@ -1,5 +1,96 @@
 main {
     height: 100vh;
     // width: 100vw;
-    
+
+    .checkin {
+        background-color: rgba(204, 202, 202, 0.225);
+        margin: 10px;
+        padding-top: 0.1rem;
+        border-radius: 12px;
+
+        .title-checkin {
+            display: flex;
+            margin: 20px;
+            font-family: Roboto;
+        }
+
+    }
+
+    .iconsArea {
+        margin: 0.3rem 0px;
+        display: flex;
+        width: 100%;
+
+        .icon {
+            margin-right: 0.4rem;
+            color: rgba(58, 58, 58, 0.484);
+        }
+    }
+
+    .bt-up {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: 0.2;
+        border-radius: 24px;
+
+        span {
+            margin: 0.2rem;
+        }
+
+        &:hover {
+            translate: 2;
+            background-color: green;
+            color: white;
+        }
+    }
+
+    .bt-down {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: 0.2;
+        border-radius: 24px;
+
+        span {
+            margin: 0.2rem;
+        }
+
+        &:hover {
+            translate: 2;
+            background-color: red;
+            color: white;
+        }
+    }
+
+}
+
+[data-tooltip]:before {
+    /* required code */
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+
+    /* customizable */
+    // top:0;
+    left:55%;
+    transform: translateX(-50%);
+    transition: 256ms all ease;
+    padding: 10px 20px;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 6px 21px rgb(0 0 0 / 10%);
+}
+
+[data-tooltip]:hover:before {
+    /* required code */
+    opacity: 1;
+
+    /* customizable */
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    // top: -30px;
 }

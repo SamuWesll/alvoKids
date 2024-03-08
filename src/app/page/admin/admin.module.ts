@@ -12,6 +12,7 @@ import { ChildrenAdminComponent } from './main/children-admin/children-admin.com
 import { MeetAdminComponent } from './main/meet-admin/meet-admin.component';
 import { RoomAdminComponent } from './main/room-admin/room-admin.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,12 @@ import { MatTableModule } from '@angular/material/table';
     SharedModule,
     ReactiveFormsModule,
     RouterModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
+  ],
+  exports: [
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class AdminModule { }

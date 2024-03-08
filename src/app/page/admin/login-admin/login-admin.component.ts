@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { LoginService } from 'src/app/shared/service/login.service';
+import { AdminService } from 'src/app/shared/service/admin.service';
 
 @Component({
   selector: 'app-login-admin',
@@ -29,7 +29,7 @@ export class LoginAdminComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
+    private adminService: AdminService,
     private router: Router,
     ) {}
 
@@ -38,7 +38,12 @@ export class LoginAdminComponent implements OnInit {
   }
 
   submit() {
-    
+    const { login, password } = this.form.value;
+
+    this.adminService.submitLogin(login, password).subscribe(result => {
+      this.adminService.setTokenLocalStorage(result)
+      this.router.navigateByUrl("admin");
+    })
   }
 
 }

@@ -43,8 +43,6 @@ export class ChildrenService {
     let url = ChildrenUrl.HTTP_CHILDREN;
     let auth = this.login.getTokenLocalStorage() as any;
 
-    console.log(auth)
-
     return this.http.post<void>(url, children, {
       headers: {
         'Authorization': `Bearer ${auth.token}`

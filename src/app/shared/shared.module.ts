@@ -29,6 +29,8 @@ import { CheckoutMemberComponent } from './components/member/checkout-member/che
 import { SelectParentComponent } from './components/select/select-parent/select-parent.component';
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 import { HeaderAdminComponent } from './components/header/header-admin/header-admin.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import { HeaderAdminComponent } from './components/header/header-admin/header-ad
     CheckoutMemberComponent,
     SelectParentComponent,
     NavbarAdminComponent,
-    HeaderAdminComponent,
+    HeaderAdminComponent
   ],
   imports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { HeaderAdminComponent } from './components/header/header-admin/header-ad
     InputMaskModule,
     FontAwesomeModule,
     HttpClientModule,
+    MatDialogModule,
   ],
   exports: [
     NotImplementationComponent,
@@ -94,7 +97,8 @@ import { HeaderAdminComponent } from './components/header/header-admin/header-ad
     CheckoutMemberComponent,
     SelectParentComponent,
     NavbarAdminComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

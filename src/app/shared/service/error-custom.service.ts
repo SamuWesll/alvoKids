@@ -12,14 +12,18 @@ export class ErrorCustomService {
     private localStorage: StorageService,
     ) { }
 
-  validationErrorMember(error: any):any {
-    this.erroForbidden(error.status)
+  validationErrorMember(error: any) :any{
+    this.erroForbidden(error.status, '')
   }
 
-  private erroForbidden(code: any) {
+  validationError(error: any, url: string) :any{
+    this.erroForbidden(error.status, url)
+  }
+
+  private erroForbidden(code: any, url: string) {
     if (code == 403) {
       this.localStorage.removerAll();
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl(url);
     }
   }
 }

@@ -52,4 +52,15 @@ export class AdminService {
     return token;
   }
 
+  submitUpdateCheckin(id: number, status: string) {
+    let url = AdminURL.HTTP_CHECKIN_UPDATE + `?id=${id}&status=${status}`;
+    let auth = this.getToken() as any;
+
+    return this.http.post<any>(url, {}, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    });
+  }
+
 }

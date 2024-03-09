@@ -6,6 +6,8 @@ import { CultResponse } from 'src/app/shared/model/Cult.model';
 import { PageableModel } from 'src/app/shared/model/Pageable.model';
 import { AdminService } from 'src/app/shared/service/admin.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ErrorCustomService } from 'src/app/shared/service/error-custom.service';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +31,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private adminService: AdminService,
+    public dialog: MatDialog,
+    private erroCustom: ErrorCustomService,
     private visitorService: VisitorService,
     ) {}
 
@@ -69,6 +73,24 @@ export class HomeComponent implements OnInit, AfterViewInit {
     const dateBirth = new Date(birthDate as string)
 
     return date.getMonth() == dateBirth.getMonth();
+  }
+
+  checkConfirmation(children: CheckModel) :void {
+    const { id } = children;
+    this.adminService.submitUpdateCheckin(id, "CONCLUDED").subscribe(
+      result =>  {
+        this.getCheckPeding();
+      }, 
+      erro => this.erroCustom.validationError(erro, "/admin/login"))
+  }
+
+  checkRecused(children: CheckModel) :void {
+    const { id } = children;
+    this.adminService.submitUpdateCheckin(id, "REFUSED").subscribe(
+      result =>  {
+        this.getCheckPeding();
+      }, 
+      erro => this.erroCustom.validationError(erro, "/admin/login"))
   }
 
 }

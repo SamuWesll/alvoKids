@@ -13,6 +13,7 @@ import { MeetAdminComponent } from './main/meet-admin/meet-admin.component';
 import { RoomAdminComponent } from './main/room-admin/room-admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,11 +32,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ReactiveFormsModule,
     RouterModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
   ],
   exports: [
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 export class AdminModule { }

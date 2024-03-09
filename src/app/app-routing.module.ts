@@ -24,6 +24,7 @@ import { PermissionComponent } from './page/admin/main/permission/permission.com
 import { ChildrenAdminComponent } from './page/admin/main/children-admin/children-admin.component';
 import { MeetAdminComponent } from './page/admin/main/meet-admin/meet-admin.component';
 import { RoomAdminComponent } from './page/admin/main/room-admin/room-admin.component';
+import { DashboardComponent } from './page/admin/main/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -63,6 +64,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo:'/admin/*', pathMatch:'full' },
       { path:'*', component: HomeComponent },
+      { path:'dashboard', component: DashboardComponent },
       { path:'permission', component: PermissionComponent },
       { path:'children', component: ChildrenAdminComponent },
       { path:'meet', component: MeetAdminComponent },

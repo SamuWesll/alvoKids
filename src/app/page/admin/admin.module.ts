@@ -14,6 +14,7 @@ import { RoomAdminComponent } from './main/room-admin/room-admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DashboardComponent } from './main/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     PermissionComponent,
     ChildrenAdminComponent,
     MeetAdminComponent,
-    RoomAdminComponent
+    RoomAdminComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

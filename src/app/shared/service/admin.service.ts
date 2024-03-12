@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { PageableModel } from '../model/Pageable.model';
 import { CheckModel } from '../model/Children.model';
 import { LoginResponse } from '../model/User.model';
+import { CultResponse } from '../model/Cult.model';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,17 @@ export class AdminService {
         'Authorization': `Bearer ${auth.token}`
       }
     });
+  }
+
+  searchMeetAll(page: number, size: number): Observable<PageableModel<CultResponse>> {
+    const url = AdminURL.HTTP_MEET + `?page=${page}&size=${size}`;
+    let auth = this.getToken() as any;
+
+    return this.http.get<PageableModel<CultResponse>>(url, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    })
   }
 
 }

@@ -1,0 +1,124 @@
+main {
+    height: 100vh;
+    // width: 100vw;
+
+    .item-add {
+        display: flex;
+        justify-content: end;
+
+        button {
+            margin-right: 3rem;
+            padding: 10px 20px 10px 20px;
+            border-radius: 12px;
+            font-family: Roboto;
+            background-color: rgb(102, 173, 61);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 1;
+
+            span {
+                margin-left: 10px;
+            }
+
+            &:hover {
+                transition: 0.2;
+                background-color: rgb(80, 137, 47);
+            }
+        }
+    }
+
+    .datasource {
+        background-color: rgba(204, 202, 202, 0.225);
+        margin: 10px;
+        padding-top: 0.1rem;
+        border-radius: 12px;
+
+        .title-checkin {
+            display: flex;
+            margin: 20px;
+            font-family: Roboto;
+        }
+
+        .active {
+            color: green;
+            font-family: Roboto;
+            font-weight: bold;
+
+            span {
+                margin-left: 5px;
+            }
+        }
+
+        .completed {
+            color: orange;
+            font-family: Roboto;
+            font-weight: bold;
+
+            span {
+                margin-left: 5px;
+            }
+        }
+
+        .canceled {
+            color: red;
+            font-family: Roboto;
+            font-weight: bold;
+
+            span {
+                margin-left: 5px;
+            }
+        }
+
+    }
+
+    .iconsArea {
+        margin: 0.3rem 0px;
+        display: flex;
+        width: 100%;
+
+        .icon {
+            margin-right: 0.4rem;
+            color: rgba(58, 58, 58, 0.484);
+        }
+    }
+
+    // .bt-up {
+    //     border: none;
+    //     background-color: transparent;
+    //     cursor: pointer;
+    //     padding: 0.5rem;
+    //     transition: 0.2;
+    //     border-radius: 24px;
+
+    //     span {
+    //         margin: 0.2rem;
+    //     }
+
+    //     &:hover {
+    //         translate: 2;
+    //         background-color: green;
+    //         color: white;
+    //     }
+    // }
+
+    // .bt-down {
+    //     border: none;
+    //     background-color: transparent;
+    //     cursor: pointer;
+    //     padding: 0.5rem;
+    //     transition: 0.2;
+    //     border-radius: 24px;
+
+    //     span {
+    //         margin: 0.2rem;
+    //     }
+
+    //     &:hover {
+    //         translate: 2;
+    //         background-color: red;
+    //         color: white;
+    //     }
+    // }
+
+}

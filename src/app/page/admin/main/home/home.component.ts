@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   maskRoom(id: number) {
-    var room = this.meet?.rooms.find(room => room.id == id);
+    var room = this.meet?.rooms?.find(room => room.id == id);
 
     return room?.name;
   }

@@ -5,5 +5,6 @@ export interface CultResponse {
     name: string,
     local: string,
     date: Date,
-    rooms: Array<RoomResponse>,
+    rooms?: Array<RoomResponse>,
+    status?: string,
 }

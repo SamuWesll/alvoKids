@@ -8,6 +8,7 @@ import { HubModule } from './page/hub/hub.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AdminModule } from './page/admin/admin.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AdminModule } from './page/admin/admin.module';
     HubModule,
     HttpClientModule,
     FontAwesomeModule,
-    AdminModule
+    AdminModule,
+    NoopAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

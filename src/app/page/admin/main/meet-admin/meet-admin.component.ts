@@ -4,7 +4,7 @@ import { CultResponse } from 'src/app/shared/model/Cult.model';
 import { PageableModel } from 'src/app/shared/model/Pageable.model';
 import { AdminService } from 'src/app/shared/service/admin.service';
 import { ErrorCustomService } from 'src/app/shared/service/error-custom.service';
-// import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-meet-admin',
@@ -18,15 +18,14 @@ export class MeetAdminComponent implements AfterViewInit {
   faClosed = faDoorClosed;
   faCanceled = faThumbsDown;
   faPlus = faPlus;
-
-  // @ViewChild(MatPaginator) set paginator(paginator:MatPaginator) {
-  //   this.pagination = paginator;
-  // };
-  // @ViewChild(MatSort) sort: MatSort;
+  pageSize = 10;
+  length = 3;
 
   displayedColumns: string[] = ['id', 'culto', 'date','local', 'status', 'action'];
   dataSource: Array<CultResponse> = [];
   result: PageableModel<CultResponse> | undefined;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private admiService: AdminService,
@@ -34,18 +33,15 @@ export class MeetAdminComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    this.findMeetAll(0, 15);
+    this.findMeetAll(0, this.pageSize);
   }
-
-  // ngOnInit(): void {
-  //   this.findMeetAll(0, 15);
-  // }
 
   private findMeetAll(page: number, size: number) {
     this.admiService.searchMeetAll(page, size).subscribe(
       result => {
         this.dataSource = result.content;
         this.result = result;
+        this.length = result.totalElements
       },
       erro => {
         this.erroCustom.validationError(erro, "/admin/login");
@@ -89,6 +85,10 @@ export class MeetAdminComponent implements AfterViewInit {
     }
 
     return day;
+  }
+
+  public handlePage(e: any) {
+    this.findMeetAll(e.pageIndex, this.pageSize);
   }
 
 }

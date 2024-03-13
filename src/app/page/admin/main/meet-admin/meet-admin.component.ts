@@ -1,22 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { faDoorClosed, faDoorOpen, faPlaceOfWorship, faPlus, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { CultResponse } from 'src/app/shared/model/Cult.model';
 import { PageableModel } from 'src/app/shared/model/Pageable.model';
 import { AdminService } from 'src/app/shared/service/admin.service';
 import { ErrorCustomService } from 'src/app/shared/service/error-custom.service';
+// import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-meet-admin',
   templateUrl: './meet-admin.component.html',
   styleUrls: ['./meet-admin.component.scss']
 })
-export class MeetAdminComponent implements OnInit {
+export class MeetAdminComponent implements AfterViewInit {
 
   faPlace = faPlaceOfWorship;
   faOpen = faDoorOpen;
   faClosed = faDoorClosed;
   faCanceled = faThumbsDown;
   faPlus = faPlus;
+
+  // @ViewChild(MatPaginator) set paginator(paginator:MatPaginator) {
+  //   this.pagination = paginator;
+  // };
+  // @ViewChild(MatSort) sort: MatSort;
 
   displayedColumns: string[] = ['id', 'culto', 'date','local', 'status', 'action'];
   dataSource: Array<CultResponse> = [];
@@ -27,9 +33,13 @@ export class MeetAdminComponent implements OnInit {
     private erroCustom: ErrorCustomService,
   ) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.findMeetAll(0, 15);
   }
+
+  // ngOnInit(): void {
+  //   this.findMeetAll(0, 15);
+  // }
 
   private findMeetAll(page: number, size: number) {
     this.admiService.searchMeetAll(page, size).subscribe(

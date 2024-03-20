@@ -1,0 +1,27 @@
+main {
+    .item-add {
+        display: flex;
+        justify-content: end;
+
+        button {
+            margin-right: 3rem;
+            padding: 10px 20px 10px 20px;
+            border-radius: 12px;
+            font-family: Roboto;
+            background-color: rgb(102, 173, 61);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 1;
+
+            span {
+                margin-left: 10px;
+            }
+
+            &:hover {
+                transition: 0.2;
+                background-color: rgb(80, 137, 47);
+            }
+        }
+    }
+}

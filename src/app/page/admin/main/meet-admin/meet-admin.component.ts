@@ -5,6 +5,7 @@ import { PageableModel } from 'src/app/shared/model/Pageable.model';
 import { AdminService } from 'src/app/shared/service/admin.service';
 import { ErrorCustomService } from 'src/app/shared/service/error-custom.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-meet-admin',
@@ -30,6 +31,7 @@ export class MeetAdminComponent implements AfterViewInit {
   constructor(
     private admiService: AdminService,
     private erroCustom: ErrorCustomService,
+    public dialog: MatDialog
   ) {}
 
   ngAfterViewInit(): void {
@@ -89,6 +91,10 @@ export class MeetAdminComponent implements AfterViewInit {
 
   public handlePage(e: any) {
     this.findMeetAll(e.pageIndex, this.pageSize);
+  }
+
+  openDialog(content: any) {
+    this.dialog.open(content);
   }
 
 }

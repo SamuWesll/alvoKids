@@ -1,10 +1,8 @@
 <main>
-    <app-header-admin 
-        [faIcon]="faPlace"
-        title="Gerenciamento dos cultos/reuniões" />
+    <app-header-admin [faIcon]="faPlace" title="Gerenciamento dos cultos/reuniões" />
 
     <div class="item-add">
-        <button>
+        <button (click)="openDialog(cadastrar)">
             <fa-icon [icon]="faPlus"></fa-icon>
             <span>Criar evento</span>
         </button>
@@ -61,16 +59,21 @@
                 <th mat-header-cell *matHeaderCellDef>Acão</th>
                 <td mat-cell *matCellDef="let element; let i = index"></td>
             </ng-container>
-        
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
         </table>
 
-        <mat-paginator 
-            [length]="length" 
-            [pageSize]="pageSize" 
-            #paginator (page)="handlePage($event)"
+        <mat-paginator [length]="length" [pageSize]="pageSize" #paginator (page)="handlePage($event)"
             aria-label="Select page of GitHub search results" />
     </div>
 </main>
+
+<ng-template #cadastrar let-modal>
+    <h1 mat-dialog-title>Cadastrar novo evento</h1>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>No</button>
+        <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+    </div>
+</ng-template>

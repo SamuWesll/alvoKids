@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -36,11 +37,13 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatFormFieldModule
   ],
   exports: [
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
   ]
 })
 export class AdminModule { }

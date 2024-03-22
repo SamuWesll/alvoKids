@@ -4,10 +4,36 @@
         title="Gerenciamento das turmas" />
 
         <div class="item-add">
-            <!-- <button (click)="openDialog(cadastrar)"> -->
-            <button>
+            <button (click)="openDialog(cadastrar)">
                 <fa-icon [icon]="faPlus"></fa-icon>
                 <span>Criar evento</span>
             </button>
         </div>
 </main>
+
+<ng-template id="dialog" #cadastrar let-modal>
+    <form class="content" [formGroup]="form" (submit)="submit()">
+        <h1 mat-dialog-title>Cadastrar uma nova sala</h1>
+
+        <div class="body">
+            <app-input-field label="titulo da reunião" formControlName="title" />
+
+            <div class="info">
+                <app-input-field class="item" label="vagas" type="number" formControlName="totalVacancies"/>
+                <app-input-field class="item" label="idade minima" type="number" formControlName="ageMininum"/>
+                <app-input-field class="item" label="idade maxima" type="number" formControlName="ageMaximum"/>
+            </div>
+        </div>
+
+        <div class="dialog-button" mat-dialog-actions>
+            <button class="exit" mat-button mat-dialog-close>
+                <fa-icon [icon]="faXmark"></fa-icon>
+                <span>Cancelar</span>
+            </button>
+            <button class="confirmation" mat-button cdkFocusInitial type="submit" [disabled]="!form.valid || !loading">
+                <fa-icon [icon]="faPlus"></fa-icon>
+                <span>Cadastrar</span>
+            </button>
+        </div>
+    </form>
+</ng-template>

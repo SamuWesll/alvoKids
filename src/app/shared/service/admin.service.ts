@@ -7,6 +7,7 @@ import { PageableModel } from '../model/Pageable.model';
 import { CheckModel } from '../model/Children.model';
 import { LoginResponse } from '../model/User.model';
 import { CultResponse } from '../model/Cult.model';
+import { RoomRequest } from '../model/RoomResponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +70,17 @@ export class AdminService {
     let auth = this.getToken() as any;
 
     return this.http.get<PageableModel<CultResponse>>(url, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    })
+  }
+
+  createRoom(room: RoomRequest) {
+    const url = AdminURL.HTTP_ROOM;
+    let auth = this.getToken() as any;
+
+    return this.http.post(url, room, {
       headers: {
         'Authorization': `Bearer ${auth.token}`
       }

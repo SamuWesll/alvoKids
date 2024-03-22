@@ -15,3 +15,9 @@ interface AgeGroup {
     minimum: number,
     maximum: number,
 }
+
+export interface RoomRequest {
+    name: string,
+    total_vacancies: number,
+    age_group: AgeGroup,
+}

@@ -95,6 +95,7 @@ export class MeetAdminComponent implements AfterViewInit {
 
   openDialog(content: any) {
     this.dialog.open(content);
+    
   }
 
 }

@@ -24,6 +24,38 @@ main {
             }
         }
     }
+
+    .datasource {
+        background-color: rgba(204, 202, 202, 0.225);
+        margin: 10px;
+        padding-top: 0.1rem;
+        border-radius: 12px;
+        padding: 20px;
+
+        .title-checkin {
+            display: flex;
+            margin: 20px;
+            font-family: Roboto;
+        }
+    }
+
+    .no_content {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .icon {
+            color: orange;
+        }
+
+        span {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-family: Roboto;
+        }
+    }
 }
 
 .body {

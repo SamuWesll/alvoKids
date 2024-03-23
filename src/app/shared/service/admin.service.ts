@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import { PageableModel } from '../model/Pageable.model';
 import { CheckModel } from '../model/Children.model';
 import { LoginResponse } from '../model/User.model';
-import { CultResponse } from '../model/Cult.model';
-import { RoomRequest } from '../model/RoomResponse.model';
+import { CultResponse, MeetingRequest } from '../model/Cult.model';
+import { RoomRequest, RoomResponse } from '../model/RoomResponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,16 @@ export class AdminService {
     private http: HttpClient,
     private localStorage: StorageService) {
 
+  }
+
+  private addHeaders() {
+    let auth = this.getToken() as any;
+
+    return {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    }
   }
 
   submitLogin(login: string, password: string) :Observable<LoginResponse> {
@@ -76,11 +86,28 @@ export class AdminService {
     })
   }
 
+  createMeeting(meet: MeetingRequest) {
+    const url = AdminURL.HTTP_MEET;
+
+    return this.http.post(url, meet, this.addHeaders())
+  }
+
   createRoom(room: RoomRequest) {
     const url = AdminURL.HTTP_ROOM;
     let auth = this.getToken() as any;
 
     return this.http.post(url, room, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    })
+  }
+
+  searchRoomAll(page: number, size: number): Observable<PageableModel<RoomResponse>> {
+    const url = AdminURL.HTTP_ROOM + `?page=${page}&size=${size}`;
+    let auth = this.getToken() as any;
+
+    return this.http.get<PageableModel<RoomResponse>>(url,  {
       headers: {
         'Authorization': `Bearer ${auth.token}`
       }

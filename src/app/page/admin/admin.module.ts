@@ -16,6 +16,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,13 +40,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule
   ],
   exports: [
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
     MatFormFieldModule,
-  ]
+    MatSnackBarModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule
+  ],
 })
 export class AdminModule { }

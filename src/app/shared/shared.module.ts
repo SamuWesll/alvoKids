@@ -30,6 +30,7 @@ import { SelectParentComponent } from './components/select/select-parent/select-
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 import { HeaderAdminComponent } from './components/header/header-admin/header-admin.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CheckoutMemberComponent,
     SelectParentComponent,
     NavbarAdminComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
   ],
   imports: [
     CommonModule,
@@ -68,6 +69,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FontAwesomeModule,
     HttpClientModule,
     MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     NotImplementationComponent,
@@ -98,7 +100,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SelectParentComponent,
     NavbarAdminComponent,
     HeaderAdminComponent,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

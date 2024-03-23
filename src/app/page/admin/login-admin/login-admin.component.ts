@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { AdminService } from 'src/app/shared/service/admin.service';
@@ -31,6 +32,7 @@ export class LoginAdminComponent implements OnInit {
     private formBuilder: FormBuilder,
     private adminService: AdminService,
     private router: Router,
+    private _snackBar: MatSnackBar
     ) {}
 
   ngOnInit(): void {
@@ -40,10 +42,21 @@ export class LoginAdminComponent implements OnInit {
   submit() {
     const { login, password } = this.form.value;
 
-    this.adminService.submitLogin(login, password).subscribe(result => {
-      this.adminService.setTokenLocalStorage(result)
-      this.router.navigateByUrl("admin");
-    })
+    this.adminService.submitLogin(login, password).subscribe(
+      result => {
+        this.adminService.setTokenLocalStorage(result)
+        this.router.navigateByUrl("admin");
+      },
+      erroContent => {
+        const { error } = erroContent;
+        this.openSnackBar(`Erro ao realizar login, descrição: ${error.description}`)
+      })
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "Fechar", {
+      duration: 10000,
+    });
   }
 
 }

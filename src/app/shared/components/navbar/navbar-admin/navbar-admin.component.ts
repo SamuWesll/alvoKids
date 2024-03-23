@@ -21,11 +21,11 @@ export class NavbarAdminComponent implements OnInit {
 
   itens = [
     { title: 'Pendencias', icon: faUserCheck, direct: '/admin/*' },
-    { title: 'Dashboard', icon: faChartPie, direct: '/admin/dashboard' },
+    { title: 'Relatório', icon: faChartPie, direct: '/admin/dashboard' },
     // { title: 'Permissões', icon: faUserGear, direct: '/admin/permission' },
     // { title: 'Crianças', icon: faChild, direct: '/admin/children' },
-    { title: 'Reuniões', icon: faChurch, direct: '/admin/meet' },
     { title: 'Turmas', icon: faCubes, direct: '/admin/room' },
+    { title: 'Reuniões', icon: faChurch, direct: '/admin/meet' },
   ]
 
   constructor(private router: Router) {

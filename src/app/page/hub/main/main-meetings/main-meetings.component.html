@@ -5,5 +5,7 @@
 />
 
 <ng-template #checkinOk>
-    <app-checkout-member [checkout]="memberCheckOut"/>
+    <app-checkout-member 
+        (refresh)="getCheckout"
+        [checkout]="memberCheckOut"/>
 </ng-template>

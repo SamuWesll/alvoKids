@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { MemberUrl } from '../const/url/member';
 import { LoginCreateRequest, MemberCheckIN, MemberCheckOut } from '../model/Member.model';
 import { LoginService } from './login.service';
+import { VisitorCheckOutRequest } from '../model/Visitor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,16 @@ export class MemberService {
     const url = MemberUrl.HTTP_POST_CREATE_LOGIN;
 
     return this.http.post<any>(url, login);
+  }
+
+  postCheckOut(checkout: VisitorCheckOutRequest) {
+    const url = MemberUrl.HTTP_POST_CHECKOUT;
+    let auth =  this.loginService.getTokenLocalStorage() as any;
+
+    return this.http.post<any>(url, checkout, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    });
   }
 }

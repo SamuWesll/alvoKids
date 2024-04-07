@@ -30,7 +30,10 @@
     <section>
         <app-children-checkout *ngFor="let children of checkout?.childrens" [children]="children" />
         <div class="button-send">
-            <app-button-send (click)="checkOuAll()" buttonTitle="Check-Out de todos" />
+            <app-button-send
+                [disabled]="isCheckOutFinish"
+                (click)="checkOuAll()" 
+                buttonTitle="Check-Out de todos" />
         </div>
     </section>
 

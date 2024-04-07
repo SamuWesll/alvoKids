@@ -34,6 +34,10 @@ export class ChildrenComponent {
         return "Saída realizada"
       case StatusChildren.AWAITING_CONFIRMATION_CHECK_IN:
         return "check-in pendente"
+      case StatusChildren.CHECK_IN_FINISH:
+        return "check-out solicitado"
+      case StatusChildren.WITHDRAWN:
+          return "checkou realizado"
       default:
         return "not map"
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VisitorService } from '../../service/visitor.service';
 import { Visitor, VisitorCheckINResponse, VisitorCheckOUTResponse, VisitorCheckOutRequest } from '../../model/Visitor.model';
 import { ParentModel } from '../../model/Parent.model';
+import { StatusChildren } from '../../model/Children.model';
 
 @Component({
   selector: 'app-checkout-component',
@@ -13,6 +14,7 @@ export class CheckoutComponentComponent implements OnInit {
   code: VisitorCheckINResponse | undefined;
   parent: ParentModel | undefined;
   checkout?: VisitorCheckOUTResponse;
+  isCheckOutFinish = false;
 
   constructor(private visitorService: VisitorService) {
 
@@ -31,7 +33,16 @@ export class CheckoutComponentComponent implements OnInit {
   getInfoCheckOut() {
     this.visitorService.getInfoCheckoutCode(this.code?.code as string).subscribe(result => {
         this.checkout = result;
+        this.isCheckOutFinishi(result)
     })
+  }
+
+  private isCheckOutFinishi(checkout: VisitorCheckOUTResponse) {
+    var result = checkout.childrens.filter(c => c.status == StatusChildren.WITHDRAWN || c.status == StatusChildren.CHECK_IN_FINISH)
+
+    if (result.length != 0) {
+      this.isCheckOutFinish = true;
+    }
   }
 
   getParentStorage() {
@@ -44,8 +55,9 @@ export class CheckoutComponentComponent implements OnInit {
      codes_children: this.checkout?.childrens.map(r => r.id) as Number[],
     }
     this.visitorService.postCheckout(body).subscribe(result => {
-      console.log(result)
+      this.getInfoCheckOut()
     })
   }
+
 
 }

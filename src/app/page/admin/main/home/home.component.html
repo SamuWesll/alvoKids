@@ -3,11 +3,11 @@
         [faIcon]="faChurch"
         title="Tela inícial" />
 
-    <div class="checkin" *ngIf="dataSource.length != 0">
+    <div class="checkin">
         <div class="title-checkin">
             <span>Check-in pendentes</span>
         </div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length != 0; else other_content">
           
             <ng-container matColumnDef="id">
               <th mat-header-cell *matHeaderCellDef> Ordem </th>
@@ -63,6 +63,13 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+
+          <ng-template #other_content>
+            <div class="other-content">
+              <fa-icon class="other-icon" [icon]="faWarning"></fa-icon>
+              não há crianças na fila
+            </div>
+          </ng-template>
           
     </div>
         

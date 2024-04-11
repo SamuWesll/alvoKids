@@ -35,6 +35,7 @@ export class MainMeetingsComponent implements OnInit {
 
   checkIN(value: any) {
     this.checkin = value
+    this.getCheckout()
   }
 
 }

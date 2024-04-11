@@ -57,7 +57,20 @@
 
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef>Acão</th>
-                <td mat-cell *matCellDef="let element; let i = index"></td>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <div *ngIf="element.status == 'ACTIVE'; else other_content" class="action">
+                        <button class="finish" (click)="updateMeet(element.id_cult, 'COMPLETED')">
+                            <fa-icon [icon]="faClosed"></fa-icon>
+                            <span>Finalizar</span>
+                        </button>
+                    </div>
+
+                    <ng-template #other_content>
+                        <div class="other-content">
+                          -
+                        </div>
+                      </ng-template>
+                </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

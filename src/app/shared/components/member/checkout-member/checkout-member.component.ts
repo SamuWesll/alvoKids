@@ -12,7 +12,7 @@ import { MemberService } from 'src/app/shared/service/member.service';
 })
 export class CheckoutMemberComponent implements OnInit {
 
-  isCheckOutFinish = false;
+  isCheckOutFinish = true;
 
   @Input() checkout?: MemberCheckOut;
   @Output() refresh = new EventEmitter();
@@ -43,7 +43,11 @@ export class CheckoutMemberComponent implements OnInit {
   }
 
   private isCheckOutFinishi(checkout: MemberCheckOut) {
-    var result = checkout.childrens.filter(c => c.status == StatusChildren.WITHDRAWN || c.status == StatusChildren.CHECK_IN_FINISH)
+    var result = checkout.childrens.filter(c => 
+      c.status == StatusChildren.WITHDRAWN 
+      || c.status == StatusChildren.CHECK_IN_FINISH
+      || c.status == StatusChildren.AWAITING_CONFIRMATION_CHECK_IN
+    )
 
     if (result.length != 0) {
       this.isCheckOutFinish = true;

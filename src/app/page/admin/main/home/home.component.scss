@@ -14,6 +14,19 @@ main {
             font-family: Roboto;
         }
 
+        .other-content {
+            display: flex;
+            justify-content: center;
+            font-size: 1rem;
+            font-family: Roboto;
+            padding: 20px;
+            color: orange;
+
+            .other-icon {
+                padding-right: 1rem;
+            }
+        }
+
     }
 
     .iconsArea {

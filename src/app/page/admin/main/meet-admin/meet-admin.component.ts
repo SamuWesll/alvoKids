@@ -184,7 +184,19 @@ export class MeetAdminComponent implements AfterViewInit {
         this.openSnackBar(`Erro ao cadastrar reunião, descrição: ${error.description}`)
       }
     )
-    
+  }
+
+  updateMeet(id: number, status: string) {
+    this.admiService.updateStatusMeet(status, id).subscribe(
+      result => {
+        this.findMeetAll(0, this.pageSize);
+      },
+      erroContent => {
+        this.erroCustom.validationError(erroContent, "/admin/login")
+        const { error } = erroContent;
+        this.openSnackBar(`Erro ao cadastrar reunião, descrição: ${error.description}`)
+      }
+    )
   }
 
 }

@@ -114,4 +114,15 @@ export class AdminService {
     })
   }
 
+  updateStatusMeet(status: string, id: number) {
+    const url = AdminURL.HTTP_MEET + `/status?id=${id}&status=${status}`;
+    let auth = this.getToken() as any;
+
+    return this.http.put(url, null, {
+      headers: {
+        'Authorization': `Bearer ${auth.token}`
+      }
+    })
+  }
+
 }

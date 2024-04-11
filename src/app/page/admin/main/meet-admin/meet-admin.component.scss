@@ -71,6 +71,28 @@ main {
             }
         }
 
+        .action {
+            .finish {
+                padding: 5px 10px 5px 10px;
+                border-radius: 12px;
+                font-family: Roboto;
+                background-color: rgb(173, 61, 61);
+                color: white;
+                border: none;
+                cursor: pointer;
+                transition: 1;
+
+                span {
+                    margin-left: 10px;
+                }
+
+                &:hover {
+                    transition: 0.2;
+                    background-color: rgb(137, 47, 47);
+                }
+            }
+        }
+
     }
 
     .iconsArea {
@@ -202,7 +224,8 @@ main {
         padding: 10px 20px 10px 20px;
         border-radius: 12px;
         font-family: Roboto;
-        background-color: rgb(102, 173, 61);;
+        background-color: rgb(102, 173, 61);
+        ;
         color: white;
         border: none;
         cursor: pointer;
@@ -216,8 +239,9 @@ main {
             transition: 0.2;
             background-color: rgb(80, 137, 47);
         }
-        
+
     }
+
     .confirmation[disabled] {
         background-color: rgba(17, 17, 17, 0.404);
     }

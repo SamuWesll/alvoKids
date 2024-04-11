@@ -49,7 +49,11 @@ export class LoginComponent implements OnInit {
       this.loginService.setTokenLocalStorage(result)
       this.router.navigateByUrl('main');
     }, erro => {
-      alert("deu ruim")
+      if (erro.status == 404) {
+        alert(`Login ou senha invalido`)
+      } else {
+        alert(`Erro no servidor`)
+      }
     })
   }
 

@@ -14,7 +14,7 @@ export class NavbarMainComponent implements OnInit {
     { name: "Responsaveis", url: `/main/parents` },
     { name: "Crianças", url: `/main/childrens` },
     { name: "Reuniões", url: `/main/meetings` },
-    { name: "Ajustes", url: `/main/settings` },
+    // { name: "Ajustes", url: `/main/settings` },
   ]
   indexPage = 0;
   faChurch = faChurch;

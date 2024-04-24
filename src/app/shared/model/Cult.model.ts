@@ -5,5 +5,13 @@ export interface CultResponse {
     name: string,
     local: string,
     date: Date,
-    rooms: Array<RoomResponse>,
+    rooms?: Array<RoomResponse>,
+    status?: string,
+}
+
+export interface MeetingRequest {
+    name: string,
+    local: string,
+    meeting_date: string,
+    rooms_id: number[],
 }

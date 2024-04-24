@@ -15,15 +15,23 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto';
             padding: 1rem;
+
+            strong {
+                font-family: 'Roboto-Bold';
+            }
         }
     }
 }
 
 .meeting {
     margin: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
+
+    strong {
+        font-family: 'Roboto-Bold';
+    }
 
     .header {
         display: flex;
@@ -51,6 +59,34 @@
 
         .button-disabled {
             opacity: 50%;
+        }
+    }
+}
+
+.notMeeting {
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        span {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto';
+            padding: 1rem;
+
+            .icon {
+                margin-bottom: 1rem;
+                color: orange;
+            }
         }
     }
 }

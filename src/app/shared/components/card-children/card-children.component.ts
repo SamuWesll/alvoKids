@@ -21,9 +21,10 @@ export class CardChildrenComponent {
 
   maskAge() {
     const dateBirth = new Date(this.children?.birthDate as string)
+    dateBirth.setDate(dateBirth.getDate() + 1)
     const age = this.calcAge(dateBirth.toISOString());
 
-    return `${age} (${dateBirth.getDate()+1}/${dateBirth.getMonth()+1}/${dateBirth.getFullYear()})`;
+    return `${age} (${dateBirth.getDate()}/${dateBirth.getMonth()+1}/${dateBirth.getFullYear()})`;
   }
 
   calcAge(date: string) {

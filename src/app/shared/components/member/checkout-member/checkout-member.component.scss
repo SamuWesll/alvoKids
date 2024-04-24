@@ -1,0 +1,40 @@
+main {
+    .title {
+        display: flex;
+        align-items: center;
+        padding-left: 0.7rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        background-color: rgba(193, 193, 189, 0.358);
+        
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgb(65, 64, 64);
+        }
+    }
+
+    section {
+        .datals {
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                .info-detals {
+                    font-weight: 600;
+                    padding: 1rem;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+        .button-send {
+            margin: 10px;
+        }
+    }
+}

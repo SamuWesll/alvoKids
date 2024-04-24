@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    uriServe: ''
+    uriServe: 'https://alvo-kids-service-production.up.railway.app'
 };

@@ -1,6 +1,37 @@
-<app-header [backButton]="true" title="Cadastro" ></app-header>
-<form class="main">
+<app-header [backButton]="true" title="Realizar cadastro" ></app-header>
+<form class="main" [formGroup]="formGroup" (ngSubmit)="handleVisitor()">
+
+    <app-input-field 
+        formControlName="nameFamily" 
+        label="Nome da familia" 
+        type="text"
+    />
+
+    <app-input-field 
+        formControlName="email" 
+        label="Email para contato" 
+        type="text"
+    />
+
+    <app-input-field 
+        formControlName="login" 
+        label="Login para acesso" 
+        type="text"
+    />
+    <app-input-field 
+        formControlName="firstPassword" 
+        label="Digite a senha" 
+        type="password"
+    />
+    <app-input-field 
+        formControlName="secondPassword" 
+        label="Confirme a senha" 
+        type="password"
+    />
+
     <app-button-send 
-        [disabled]="true"
+        buttonTitle="Cadastrar família"
+        buttonType="submit"
+        [disabled]="!formGroup.valid"
     />
 </form>

@@ -1,0 +1,41 @@
+.content {
+    
+    main {
+        .content-family {
+            border: 1px solid;
+            margin: 1rem;
+            padding: 0.5rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto';
+            span {
+                margin-top: 0.2rem;
+    
+                strong {
+                    font-family: 'Roboto-Bold';
+                }
+            }
+
+            .content-button {
+                margin-top: 0.5rem;
+                display: flex;
+                justify-content: end;
+
+                button {
+                    padding: 0.3rem;
+                    width: 50%;
+                    border: none;
+                    background-color: orange;
+                    border-radius: 12px;
+                    font-size: 1rem;
+                    font-family: 'Roboto-Bold';
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+            
+        }
+
+    }
+}

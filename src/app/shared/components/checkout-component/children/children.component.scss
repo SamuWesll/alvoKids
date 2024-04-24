@@ -28,7 +28,11 @@
             display: flex;
             flex-direction: column;
             font-size: 0.9rem;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto';
+
+            strong {
+                font-family: 'Roboto-Bold';
+            }
 
             .iconsArea {
                 margin: 0.3rem 0px;

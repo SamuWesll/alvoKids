@@ -9,7 +9,7 @@ export interface Visitor {
 
 export interface VisitorCheckIN {
     id_cult: number,
-    responsible: Visitor,
+    responsible?: Visitor | ParentModel,
     childrens: ChildrenModel[],
 }
 
@@ -21,4 +21,9 @@ export interface VisitorCheckOUTResponse {
     childrens: ChildrenModel[],
     id_cult: number,
     hours: string,
+}
+
+export interface VisitorCheckOutRequest {
+    code: string,
+    codes_children: Number[],
 }

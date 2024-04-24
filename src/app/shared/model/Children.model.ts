@@ -7,6 +7,7 @@ export interface ChildrenStorage {
     allergic: string,
     observation?: string,
     status?: StatusChildren,
+    idRoom?: number,
 }
 
 export enum StatusChildren {
@@ -17,5 +18,14 @@ export enum StatusChildren {
 }
 
 export interface ChildrenModel extends ChildrenStorage {
+    id?: number
+}
 
+export interface CheckModel {
+    id: number,
+    id_meeting: number,
+    id_room: number,
+    flag_visitor: boolean,
+    code_check: string,
+    children_payload: ChildrenModel,
 }

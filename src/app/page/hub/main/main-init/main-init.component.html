@@ -1,1 +1,28 @@
-<p>main-init works!</p>
+<header>
+    <div>
+        <img src="../../../../../assets/images/icon/family.jpg" alt="">
+    </div>
+    <div class="title-header">
+        <span>O Alvo Kids</span>
+    </div>
+</header>
+<main class="content">
+    <div class="content-family">
+        <span>
+            <strong>Familia: </strong>
+            {{ user?.nameFamily }}
+        </span>
+        <!-- <span>
+            <strong>Contato principal: </strong>
+            (11) 98467-0655 
+        </span> -->
+        <span>
+            <strong>Email: </strong>
+            {{ user?.email }}
+        </span>
+        <span>
+            <strong>Login: </strong>
+            {{ user?.login }}
+        </span>
+    </div>
+</main>

@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ChildrenModel } from 'src/app/shared/model/Children.model';
 import { CultResponse } from 'src/app/shared/model/Cult.model';
 import { RoomResponse } from 'src/app/shared/model/RoomResponse.model';
 import { ChildrenService } from 'src/app/shared/service/children.service';
 import { VisitorService } from 'src/app/shared/service/visitor.service';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MemberCheckIN } from 'src/app/shared/model/Member.model';
+import { MemberService } from 'src/app/shared/service/member.service';
 
 @Component({
   selector: 'app-checkin-member',
@@ -16,12 +20,28 @@ export class CheckinMemberComponent {
   childrens: Array<ChildrenModel> = [];
   childrensNotMeet: Array<ChildrenModel> = [];
   childrensSelected: Array<ChildrenModel> = [];
+  checkInLoading = false;
+  @Output() check = new EventEmitter<boolean>();
+
+  faExclamation = faExclamationTriangle
+  formGroup!: FormGroup;
 
   constructor(
     private visitorService: VisitorService,
     private childrenService: ChildrenService,
+    private formBuilder: FormBuilder,
+    private memberService: MemberService,
     ) {
     
+  }
+
+  criarFormulario(): void {
+    this.formGroup = this.formBuilder.group({
+      idParent: [0, [
+        Validators.required,
+        Validators.min(1)
+      ]],
+    })
   }
 
   maskDate(dat: Date) {
@@ -31,6 +51,7 @@ export class CheckinMemberComponent {
 
   ngOnInit(): void {
     this.getCult();
+    this.criarFormulario()
   }
 
   private getCult() {
@@ -49,7 +70,7 @@ export class CheckinMemberComponent {
   }
 
   private filterChildrensByMeet() {
-    this.cult?.rooms.forEach(room => {
+    this.cult?.rooms?.forEach(room => {
       const { maximum, minimum } = room.age_group;
       
       const sons = this.childrens.filter(c => {
@@ -94,6 +115,32 @@ export class CheckinMemberComponent {
         }
       })
     }
+  }
 
+  submitCheckIn() {
+    const { idParent } = this.formGroup.value;
+
+    let checkIn: MemberCheckIN = {
+      childrens: this.childrensSelected.map(c => {
+        return {
+          id_children: c.id,
+          id_room: c.idRoom,
+        }
+      }) as any,
+      id_parent: Number.parseInt(idParent),
+      id_cult: this.cult.id_cult,
+    }
+
+    this.memberService.postCheckIn(checkIn).subscribe(result => {
+      this.awaitingCheckIn()
+    })
+  }
+
+  async awaitingCheckIn() {
+    this.checkInLoading = true;
+    setTimeout(() => {
+      this.checkInLoading = false;
+      this.check.emit(false);
+    }, 3000);
   }
 }

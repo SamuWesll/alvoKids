@@ -1,0 +1,26 @@
+.content {
+    height: 5vh;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    select {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        border: solid rgb(158, 153, 153);
+        padding-left: 0.5rem;
+        font-size: 0.9rem;
+        // font-family: 'Roboto', sans-serif;
+    }
+
+    select::placeholder {
+
+        font-family: 'Roboto', sans-serif;
+    }
+
+    select[readonly] {
+        background-color: rgba(210, 210, 210, 0.455);
+    }
+}

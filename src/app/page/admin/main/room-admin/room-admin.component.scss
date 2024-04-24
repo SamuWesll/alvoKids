@@ -1,0 +1,126 @@
+main {
+    .item-add {
+        display: flex;
+        justify-content: end;
+
+        button {
+            margin-right: 3rem;
+            padding: 10px 20px 10px 20px;
+            border-radius: 12px;
+            font-family: Roboto;
+            background-color: rgb(102, 173, 61);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 1;
+
+            span {
+                margin-left: 10px;
+            }
+
+            &:hover {
+                transition: 0.2;
+                background-color: rgb(80, 137, 47);
+            }
+        }
+    }
+
+    .datasource {
+        background-color: rgba(204, 202, 202, 0.225);
+        margin: 10px;
+        padding-top: 0.1rem;
+        border-radius: 12px;
+        padding: 20px;
+
+        .title-checkin {
+            display: flex;
+            margin: 20px;
+            font-family: Roboto;
+        }
+    }
+
+    .no_content {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .icon {
+            color: orange;
+        }
+
+        span {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-family: Roboto;
+        }
+    }
+}
+
+.body {
+    margin: 20px;
+
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+
+        .item {
+            width: 30%;
+            margin: 5px;
+        }
+    }
+}
+
+.dialog-button {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+
+    .exit {
+        margin-right: 3rem;
+        padding: 10px 20px 10px 20px;
+        border-radius: 12px;
+        font-family: Roboto;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: 1;
+
+        span {
+            margin-left: 10px;
+        }
+
+        &:hover {
+            transition: 0.2;
+            background-color: rgb(169, 4, 4);
+        }
+    }
+
+    .confirmation {
+        margin-right: 3rem;
+        padding: 10px 20px 10px 20px;
+        border-radius: 12px;
+        font-family: Roboto;
+        background-color: rgb(102, 173, 61);;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: 1;
+
+        span {
+            margin-left: 10px;
+        }
+
+        &:hover {
+            transition: 0.2;
+            background-color: rgb(80, 137, 47);
+        }
+        
+    }
+    .confirmation[disabled] {
+        background-color: rgba(17, 17, 17, 0.404);
+    }
+}

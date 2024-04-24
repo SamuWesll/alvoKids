@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChildrenModel } from 'src/app/shared/model/Children.model';
 import { ChildrenService } from 'src/app/shared/service/children.service';
+import { ErrorCustomService } from 'src/app/shared/service/error-custom.service';
 
 @Component({
   selector: 'app-main-children',
@@ -13,11 +14,14 @@ export class MainChildrenComponent implements OnInit {
 
   constructor(
     private childrenService: ChildrenService,
+    private errorCustom: ErrorCustomService,
     ) {}
 
   findChildren() {
     this.childrenService.getChildren().subscribe(result => {
       this.childrens = result;
+    }, error => {
+      this.errorCustom.validationErrorMember(error);
     })
   }
 

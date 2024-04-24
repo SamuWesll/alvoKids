@@ -26,6 +26,12 @@ import { CheckinComponentComponent } from './components/checkin-component/checki
 import { ChildrenComponent } from './components/checkout-component/children/children.component';
 import { CheckinMemberComponent } from './components/member/checkin-member/checkin-member.component';
 import { CheckoutMemberComponent } from './components/member/checkout-member/checkout-member.component';
+import { SelectParentComponent } from './components/select/select-parent/select-parent.component';
+import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
+import { HeaderAdminComponent } from './components/header/header-admin/header-admin.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +57,9 @@ import { CheckoutMemberComponent } from './components/member/checkout-member/che
     ChildrenComponent,
     CheckinMemberComponent,
     CheckoutMemberComponent,
+    SelectParentComponent,
+    NavbarAdminComponent,
+    HeaderAdminComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +68,8 @@ import { CheckoutMemberComponent } from './components/member/checkout-member/che
     InputMaskModule,
     FontAwesomeModule,
     HttpClientModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     NotImplementationComponent,
@@ -86,6 +97,11 @@ import { CheckoutMemberComponent } from './components/member/checkout-member/che
     ChildrenComponent,
     CheckinMemberComponent,
     CheckoutMemberComponent,
+    SelectParentComponent,
+    NavbarAdminComponent,
+    HeaderAdminComponent,
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

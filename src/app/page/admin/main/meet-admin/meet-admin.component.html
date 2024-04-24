@@ -1,0 +1,142 @@
+<main>
+    <app-header-admin [faIcon]="faPlace" title="Gerenciamento dos cultos/reuniões" />
+
+    <div class="item-add">
+        <button (click)="openDialog(cadastrar)">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <span>Criar evento</span>
+        </button>
+    </div>
+
+    <div class="datasource" *ngIf="dataSource.length != 0">
+        <div class="title-checkin">
+            <span>Lista de reuniões</span>
+        </div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Ordem </th>
+                <td mat-cell *matCellDef="let element; let i = index">{{ element.id_cult }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="culto">
+                <th mat-header-cell *matHeaderCellDef>Culto</th>
+                <td mat-cell *matCellDef="let element; let i = index">{{ element.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Data</th>
+                <td mat-cell *matCellDef="let element; let i = index">{{ maskDate(element.date) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="local">
+                <th mat-header-cell *matHeaderCellDef>Local</th>
+                <td mat-cell *matCellDef="let element; let i = index">{{ element.local }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <div *ngIf="element.status == 'ACTIVE'" class="active">
+                        <fa-icon [icon]="faOpen"></fa-icon>
+                        <span>ATIVO</span>
+                    </div>
+
+                    <div *ngIf="element.status == 'COMPLETED'" class="completed">
+                        <fa-icon [icon]="faClosed"></fa-icon>
+                        <span>FINALIZADO</span>
+                    </div>
+
+                    <div *ngIf="element.status == 'CANCELED'" class="canceled">
+                        <fa-icon [icon]="faCanceled"></fa-icon>
+                        <span>CANCELADO</span>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Acão</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <div *ngIf="element.status == 'ACTIVE'; else other_content" class="action">
+                        <button class="finish" (click)="updateMeet(element.id_cult, 'COMPLETED')">
+                            <fa-icon [icon]="faClosed"></fa-icon>
+                            <span>Finalizar</span>
+                        </button>
+                    </div>
+
+                    <ng-template #other_content>
+                        <div class="other-content">
+                          -
+                        </div>
+                      </ng-template>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+        <mat-paginator [length]="length" [pageSize]="pageSize" #paginator (page)="handlePage($event)"
+            aria-label="Select page of GitHub search results" />
+    </div>
+</main>
+
+<ng-template id="dialog" #cadastrar let-modal>
+    <form class="content" [formGroup]="form" (submit)="submit()">
+        <h1 mat-dialog-title>Cadastrar novo evento</h1>
+
+        <div class="body">
+            <div class="item-first">
+                <app-input-field formControlName="name"
+                    class="app-input-field" label="titulo da reunião" />
+                <app-input-field formControlName="local"
+                    class="app-input-field" label="Local (ex: barracão/chacara)" />
+            </div>
+            
+            <div class="item-first">
+                <app-input-date formControlName="meeting_date"
+                    class="app-input-field" label="Data do evento"/>
+            </div>
+
+            <div>
+                <section class="example-section">
+                    <span class="list-section-hd">
+                        <span class="label-hd">
+                            selecione as turmar para a reunião:
+                        </span>
+                        <mat-checkbox class="example-margin" [checked]="allComplete" [color]="task.color"
+                            [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                            {{task.name}}
+                        </mat-checkbox>
+                    </span>
+                    <span class="list-section-ul">
+                        <ul>
+                            <li *ngFor="let subtask of task.subtasks; let i = index">
+                                <mat-checkbox 
+                                    [checked]="subtask.completed" 
+                                    [color]="subtask.color"
+                                    (change)="updateAllComplete(i); someComplete()">
+                                        {{subtask.name}}
+                                </mat-checkbox>
+                            </li>
+                        </ul>
+                    </span>
+                </section>
+            </div>
+
+        </div>
+
+        <div class="dialog-button" mat-dialog-actions>
+            <button class="exit" mat-button mat-dialog-close>
+                <fa-icon [icon]="faXmark"></fa-icon>
+                <span>Cancelar</span>
+            </button>
+            <button class="confirmation" mat-button mat-button type="submit" [disabled]="!form.valid || !loading">
+                <fa-icon [icon]="faPlus"></fa-icon>
+                <span>Cadastrar</span>
+            </button>
+        </div>
+    </form>
+</ng-template>

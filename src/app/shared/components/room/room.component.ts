@@ -16,7 +16,8 @@ export class RoomComponent implements OnInit {
   faDoorOpen = faDoorOpen;
   faDoorClosed = faDoorClosed;
 
-  select(children: any) {
+  select(children: any, idRoom: number) {
+    children.idRoom = idRoom;
     this.selectChildren.emit(children);
   }
 

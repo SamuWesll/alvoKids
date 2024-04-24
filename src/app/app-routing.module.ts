@@ -16,6 +16,15 @@ import { MainSettingsComponent } from './page/hub/main/main-settings/main-settin
 import { MainInitComponent } from './page/hub/main/main-init/main-init.component';
 import { ChildrenRegisterComponent } from './page/hub/register/children-register/children-register.component';
 import { ParentRegisterComponent } from './page/hub/register/parent-register/parent-register.component';
+import { AdminComponent } from './page/admin/admin.component';
+import { LoginAdminComponent } from './page/admin/login-admin/login-admin.component';
+import { MainAdminComponent } from './page/admin/main-admin/main-admin.component';
+import { HomeComponent } from './page/admin/main/home/home.component';
+import { PermissionComponent } from './page/admin/main/permission/permission.component';
+import { ChildrenAdminComponent } from './page/admin/main/children-admin/children-admin.component';
+import { MeetAdminComponent } from './page/admin/main/meet-admin/meet-admin.component';
+import { RoomAdminComponent } from './page/admin/main/room-admin/room-admin.component';
+import { DashboardComponent } from './page/admin/main/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component: HubComponent },
@@ -46,6 +55,22 @@ const routes: Routes = [
   { path: 'visitor/new-children', component: NewChildrenComponent },
   { path: 'new-children', component: ChildrenRegisterComponent },
   { path: 'new-parent', component: ParentRegisterComponent },
+  { 
+    path: 'admin/login', component: LoginAdminComponent,
+  },
+  {
+    path: 'admin', 
+    component: MainAdminComponent,
+    children: [
+      { path: '', redirectTo:'/admin/*', pathMatch:'full' },
+      { path:'*', component: HomeComponent },
+      { path:'dashboard', component: DashboardComponent },
+      { path:'permission', component: PermissionComponent },
+      { path:'children', component: ChildrenAdminComponent },
+      { path:'meet', component: MeetAdminComponent },
+      { path:'room', component: RoomAdminComponent },
+    ]
+  }
 ];
 
 @NgModule({

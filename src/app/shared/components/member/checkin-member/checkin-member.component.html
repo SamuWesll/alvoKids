@@ -1,35 +1,57 @@
-<main class="meeting">
-    <div class="header">
+<div>
+    <main class="meeting" *ngIf="cult && checkInLoading == false">
+        <form class="header" [formGroup]="formGroup">
+            <div>
+                <span>
+                    <strong>Turma: </strong>
+                    {{cult.name}}
+                </span>
+                <span>
+                    <strong>Data: </strong>
+                    {{ maskDate(cult.date) }} 
+                </span>
+            </div>
+            <span>
+                <strong>Local: </strong>
+                {{ cult.local }}
+            </span>
+
+            <app-select-parent formControlName="idParent"/>
+
+            <app-room 
+                *ngFor="let room of rooms;  let i = index" 
+                [room]="room"
+                (selectChildren)="selectedChildren($event)"
+                [isVisitor]="false"
+            ></app-room>
+
+            <app-not-room 
+                *ngIf="childrensNotMeet.length > 0" 
+                [childrens]="childrensNotMeet"
+            />
+
+            <footer>
+                <button
+                    (click)="submitCheckIn()"
+                    [disabled]="childrensSelected.length <= 0 || !formGroup.valid"
+                    [ngClass]="childrensSelected.length <= 0 || !formGroup.valid ? 'button-disabled' : ''"
+                >
+                    Concluir checkin
+                </button>
+            </footer>
+        </form>
+    </main>
+
+    <main class="notMeeting" *ngIf="cult && checkInLoading">
+        <app-loading-checkin></app-loading-checkin>
+    </main>
+
+    <main class="notMeeting"  *ngIf="cult == null">
         <div>
             <span>
-                <strong>Turma: </strong>
-                {{cult.name}}
-            </span>
-            <span>
-                <strong>Data: </strong>
-                {{ maskDate(cult.date) }} 
+                <fa-icon class="icon" [icon]="faExclamation" size="3x"></fa-icon>
+                Não há nenhuma reunião aberta
             </span>
         </div>
-        <span>
-            <strong>Local: </strong>
-            {{ cult.local }}
-        </span>
-
-        <app-room 
-            *ngFor="let room of rooms;  let i = index" 
-            [room]="room"
-            (selectChildren)="selectedChildren($event)"
-            [isVisitor]="false"
-        ></app-room>
-        <app-not-room *ngIf="childrensNotMeet.length > 0" [childrens]="childrensNotMeet"></app-not-room>
-
-        <footer>
-            <button
-                [disabled]="childrensSelected.length <= 0"
-                [ngClass]="childrensSelected.length <= 0 ? 'button-disabled' : ''"
-            >
-                Concluir checkin
-            </button>
-        </footer>
-    </div>
-</main>
+    </main>
+</div>

@@ -1,0 +1,9 @@
+<div class="content">     
+    <select id="parent" [formControl]="controle">
+        <option 
+            *ngFor="let parent of parents" 
+            [value]="parent.id">
+                {{parseName(parent)}}
+        </option>
+    </select>
+</div>

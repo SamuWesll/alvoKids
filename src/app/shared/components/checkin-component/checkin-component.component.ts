@@ -57,7 +57,7 @@ export class CheckinComponentComponent implements OnInit {
   }
 
   private filterChildrensByMeet() {
-    this.cult?.rooms.forEach(room => {
+    this.cult?.rooms?.forEach(room => {
       const { maximum, minimum } = room.age_group;
       
       const sons = this.childrens.filter(c => {

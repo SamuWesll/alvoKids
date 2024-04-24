@@ -27,7 +27,7 @@
             *ngFor="let children of room.childrens" 
             [children]="children"
             [isOldOff]="room.sold_off"
-            (funcSelect)="select(children)"
+            (funcSelect)="select(children, room.id)"
             [isVisitor]="isVisitor"
         ></app-card-children-room>
     </main>

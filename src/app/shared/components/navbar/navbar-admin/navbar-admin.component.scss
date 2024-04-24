@@ -1,0 +1,46 @@
+.menu-admin {
+    width: 100vw;
+    height: 3rem;
+    background-color: rgb(157, 150, 150);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+
+        li {
+            list-style: none;
+
+            button {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                padding: 0.5rem;
+                transition: 0.2;
+                border-radius: 24px;
+                span {
+                    margin: 0.2rem;
+                }
+                &:hover {
+                    translate: 2;
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
+        .active {
+            background-color: black;
+            border-radius: 24px;
+            cursor: pointer;
+            
+            button {
+                color: white;
+            }
+        }
+    }
+
+}
